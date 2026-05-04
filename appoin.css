@@ -1,0 +1,307 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset and Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary-green: #00a854;
+    --primary-blue: #2563eb;
+    --bg-light: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    
+    --hospital-bg: #f0fdf4;
+    --badge-blue-bg: #e0f2fe;
+    --badge-blue-text: #0284c7;
+    --badge-green-bg: #dcfce3;
+    --badge-green-text: #166534;
+    --badge-yellow-bg: #fef08a;
+    --badge-yellow-text: #854d0e;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+/* Typography & Utilities */
+.text-green { color: var(--primary-green); font-weight: 600; }
+.text-muted { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
+.icon-green { color: var(--primary-green); font-size: 1.2rem; }
+.icon-blue { color: var(--primary-blue); font-size: 1.2rem; }
+
+/* Sticky Header */
+.top-header {
+    background-color: var(--card-bg);
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Main Layout */
+.main-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero-card h1 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+/* Filters */
+.filter-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--bg-light);
+    color: var(--text-muted);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+/* Management Section */
+.management-section {
+    margin-top: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-size: 1.3rem;
+}
+
+.view-details {
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Accordion: Hospital Level */
+.hospital-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.hospital-header {
+    background-color: var(--hospital-bg);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hospital-body {
+    display: none; /* Hidden by default */
+}
+
+/* Accordion: Time Slot Level */
+.timeslot-card {
+    border-top: 1px solid var(--border-color);
+}
+
+.timeslot-header {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    user-select: none;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.consulted-badge {
+    background-color: var(--badge-blue-bg);
+    color: var(--badge-blue-text);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.timeslot-body {
+    display: none; /* Hidden by default */
+    padding: 16px 24px;
+    background-color: var(--bg-light);
+}
+
+/* Accordion Toggle Classes */
+.hospital-card.open > .hospital-body {
+    display: block;
+}
+.timeslot-card.open > .timeslot-body {
+    display: block;
+}
+
+/* Chevron Rotation */
+.chevron {
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+.hospital-card.open > .hospital-header .chevron,
+.timeslot-card.open > .timeslot-header .chevron {
+    transform: rotate(180deg);
+}
+
+/* Accordion: Patient Level */
+.patient-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.bg-green { background-color: var(--primary-green); }
+
+.name-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.badge-yellow { background-color: var(--badge-yellow-bg); color: var(--badge-yellow-text); }
+.badge-green { background-color: var(--badge-green-bg); color: var(--badge-green-text); }
+
+.patient-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.btn-blue {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+.btn-disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
