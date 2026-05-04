@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f9fb;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 41px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    background: #fbfcfe;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.outline {
+
+    background: transparent;
+    color: #2140bc;
+    border: 2px solid #0c4dbd;
+    background-color: #ffffff;
+    
+    
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+
+/* Hero Circle */
+.hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    background: #b0e3c8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
+
+/* Features */
+.features {
+    text-align: center;
+    padding: 50px;
+}
+
+.features h2 {
+    margin-bottom: 30px;
+}
+
+.feature-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: #c8daf2;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+}
+
+.card.green {
+    background: #d4f1e0;
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.icon.blue {
+    color: #2563eb;
+}
+
+.icon.green {
+    color: green;
+}
+
+
+
+
+
+.copy {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 8px;
+    font-size: 22px;
+}
+.circle {
+    width: 250px;
+    height: 250px;
+    background: #d9f2ea;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+
+    margin: auto;              
+}
+
+.circle i {
+    font-size: 100px;
+    color: #2563eb;
+    margin: 0;  
+}
+l
+
+/* Top Row */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left */
+.footer-left {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-left i {
+    margin-right: 8px;
+    color: #f2fcff;
+}
+
+/* Center */
+.footer-center {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Bottom text */
+.copy {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.footer {
+    background-color: #5d87d6; /* Matching the blue in your image */
+    color: white;
+    padding: 20px 40px;
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Spreads the three sections across the width */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Give the left brand and the right spacer equal weight (flex: 1) */
+/* This forces the 'footer-center' to be in the dead center of the screen */
+.footer-left {
+    flex: 1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-center {
+    flex: 2; /* Takes up more relative space to allow for centering */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-center a:hover {
+    text-decoration: underline;
+}
+
+.footer-spacer {
+    flex: 1; /* Matches the width of footer-left to maintain balance */
+}
+
+.copy {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
