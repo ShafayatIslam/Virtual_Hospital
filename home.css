@@ -1,0 +1,514 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Basic Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.10), transparent 30%),
+        linear-gradient(180deg, #f7fbf8 0%, #f4f7f6 100%);
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+
+/* Application Layout */
+.app-container {
+    display: flex;
+    height: calc(100vh - 72px);
+    overflow: hidden;
+    padding: 28px 40px;
+    gap: 28px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    background-color: transparent;
+    border-right: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-green {
+    color: #16a34a;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #666666;
+    padding: 14px 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #f9fafb;
+    color: #333333;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+}
+
+.top-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 35px;
+    color: #036303;
+}
+
+.top-brand h2 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.dashboard-content {
+    padding: 0;
+    max-width: 1100px;
+    margin: 0;
+    width: 100%;
+}
+
+/* Cards & Typography */
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    border: 1px solid #eaeaea;
+}
+
+.welcome-card {
+    margin-bottom: 24px;
+}
+
+.welcome-card h1 {
+    font-size: 1.9rem;
+    margin-bottom: 5px;
+}
+
+.role-text {
+    color: #666666;
+    font-size: 1.05rem;
+}
+
+/* Stats Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    border-radius: 12px;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card p {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stat-blue {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.stat-green {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.stat-purple {
+    background: linear-gradient(135deg, #a855f7, #9333ea);
+}
+
+/* Current Consultation Section */
+.section-title {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.info-cards {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.icon-blue {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+
+.icon-green {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    font-size: 1.25rem;
+}
+
+.text-muted {
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+/* Patients List Area */
+.patients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.status-counters {
+    display: flex;
+    gap: 15px;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.badge-yellow {
+    background-color: #fef08a;
+    color: #854d0e;
+}
+
+.badge-blue {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-green {
+    background-color: #dcfce3;
+    color: #166534;
+}
+
+/* Patient Card Styling */
+.patients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.patient-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.patient-name {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.patient-subtext {
+    color: #666666;
+    font-size: 0.95rem;
+}
+
+.patient-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-blue {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-blue:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-green {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+.btn-green:hover {
+    background-color: #15803d;
+}
+
+.btn-gray {
+    background-color: #e5e7eb;
+    color: #333333;
+}
+
+.btn-gray:hover {
+    background-color: #d1d5db;
+}
+
+.btn-disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #666666;
+    font-weight: 500;
+}
+.logo{
+    height: 30px;
+    width: 30px;
+}
+.logout-btn:hover {
+    color: #dc2626;
+}
+
+.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 550px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin-bottom: 5px;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666666;
+    cursor: pointer;
+}
+
+/* Form Styles inside Modal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.text-red {
+    color: #dc2626;
+}
+.fa-regular{
+    font-size: 30px;
+}
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #16a34a;
+}
+
+/* Medicine section styling */
+.medicine-inputs {
+    padding: 15px;
+    background-color: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.medicine-inputs input {
+    margin-bottom: 10px;
+}
+
+#btn-add-medicine {
+    margin-top: 5px;
+}
+
+.medicine-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.med-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.med-delete {
+    color: #dc2626;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+form {
+    max-height: 500px;
+    overflow-y: auto;
+}
