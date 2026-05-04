@@ -50,31 +50,42 @@ body {
 .hero-text p {
     color: #555;
     margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.buttons{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    gap: 20px;
 }
 
 .buttons button {
-    padding: 10px 20px;
     margin-right: 10px;
     border-radius: 6px;
-    border: none;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .primary {
     background: #2563eb;
     color: white;
+    border: none;
+    padding: 12px 20px;
 }
 
 .outline {
-
     background: transparent;
     color: #2140bc;
     border: 2px solid #0c4dbd;
     background-color: #ffffff;
     
-    
     padding: 10px 20px;
     border-radius: 10px;
+}
+
+.outline:hover{
+    background-color: rgba(33, 64, 188,0.08);
 }
 
 
@@ -102,7 +113,7 @@ body {
     padding: 50px;
 }
 
-.features h2 {
+.features h1 {
     margin-bottom: 30px;
 }
 
@@ -113,14 +124,18 @@ body {
 }
 
 .card {
-    background: #c8daf2;
+    background: rgba(200, 218, 242, 0.6);
     padding: 25px;
     border-radius: 12px;
-    width: 280px;
+    width: 350px;
 }
 
 .card.green {
-    background: #d4f1e0;
+    background: rgba(212, 241, 224, 0.6);
+}
+
+.card h3{
+    margin-bottom: 15px;
 }
 
 .icon {
