@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Virtual Hospital</title>
+    <link rel="stylesheet" href="login.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="theme-patient">
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-regular fa-heart icon-color"></i> Virtual Hospital
+        </div>
+        <a href="#" class="nav-link">Don't have an account? Register</a>
+    </nav>
+
+    <!-- Main Login Container -->
+    <main class="login-wrapper">
+        <div class="login-card">
+            
+            <h1 class="login-title">Login</h1>
+           
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn-submit" id="btn-login">Login</button>
+            </form>
+
+            <!-- Footer Link -->
+            <div class="login-footer">
+                <a href="#" class="nav-link">Don't have an account? Register here</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="overlay" class="hidden">
+        <div id="empty-input-alert" class="hidden">
+            <div class="alert-msg">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>Please enter both username and password to login.</p>
+            </div>
+            <button id="ok-btn" class="popup-btn">Ok</button>
+        </div>
+        <div id="invalid-input-alert" class="hidden">
+            <div class="error-msg">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p></p>
+            </div>
+            <button id="try-btn" class="popup-btn">Try again</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
