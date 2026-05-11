@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // BACK BUTTON
     document.getElementById("back-btn").addEventListener("click", function(e) {
         e.preventDefault();
-         window.location.href = "home.html"; // home html er link
+         window.location.href = "Dr_Dashbord.html"; // home html er link
     });
 
 
