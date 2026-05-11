@@ -1,31 +1,28 @@
 let activePatientCard = null; 
-//1. PATIENT LIST EVENTS (Call & Prescribe)
+//patient list er moddhe click event handle (Call & Prescribe)
 document.getElementById("patients-list").addEventListener("click", function(e) {
     
-    // Call Button Clicked
+    //   Call button click hoise kina check
     const callBtn = e.target.closest('.call-btn');
     if (callBtn && !callBtn.disabled) {
         e.preventDefault();
         
-        // Find the specific card that was clicked
         const card = callBtn.closest('.patient-card');
-        
-        // Change Status Badge
         const badge = card.querySelector('.status-badge');
         badge.textContent = 'In Call';
         badge.classList.remove('badge-yellow');
         badge.classList.add('badge-blue');
 
-        // Disable Call Button
+        //   Call button off kori jate abar click na hoy
         callBtn.classList.replace('btn-blue', 'btn-disabled');
         callBtn.disabled = true;
 
-        // Enable Prescribe Button
+        // Prescribe button on korle
         const prescribeBtn = card.querySelector('.prescribe-btn');
         prescribeBtn.classList.replace('btn-disabled', 'btn-green');
         prescribeBtn.disabled = false;
 
-        // Update Counters Manually
+        // counter er part ta update kora 
         let waitingCount = parseInt(document.getElementById('count-waiting').textContent);
         let inCallCount = parseInt(document.getElementById('count-incall').textContent);
         
@@ -33,19 +30,19 @@ document.getElementById("patients-list").addEventListener("click", function(e) {
         document.getElementById('count-incall').textContent = inCallCount + 1;
     }
 
-    // Prescribe Button Clicked
+    //Prescribe button click hoise kina check
     const prescribeBtn = e.target.closest('.prescribe-btn');
     if (prescribeBtn && !prescribeBtn.disabled) {
         e.preventDefault();
         
         activePatientCard = prescribeBtn.closest('.patient-card');
         
-        // Get patient name from HTML to show in Modal
-        // childNodes[0] is used to get the text before the badge span
+        //  modal-e show korar jonno patient name ber 
+        //  childNodes[0] diye badge span er age-er text ta dhora hocche
         const patientName = activePatientCard.querySelector('.patient-name').childNodes[0].textContent.trim();
         document.getElementById('modal-patient-name').textContent = `Patient: ${patientName}`;
         
-        // Reset form and open modal
+        //   form reset + medicine list empty + modal open
         document.getElementById('prescription-form').reset();
         document.getElementById('medicine-list').innerHTML = ''; 
         document.getElementById('prescription-modal').classList.add('active');
@@ -54,7 +51,7 @@ document.getElementById("patients-list").addEventListener("click", function(e) {
 
 
 
-// Add Medicine into UI directly
+//   UI te medicine add kori (dynamic list)
 document.getElementById("btn-add-medicine").addEventListener("click", function(e) {
     e.preventDefault();
     
@@ -86,16 +83,16 @@ document.getElementById("btn-add-medicine").addEventListener("click", function(e
     }
 });
 
-// Delete Medicine directly from UI
+//   UI theke medicine delete kori (trash icon click)
 document.getElementById("medicine-list").addEventListener("click", function(e) {
     const deleteBtn = e.target.closest('.med-delete');
     if (deleteBtn) {
         e.preventDefault();
-        deleteBtn.closest('.med-item').remove(); // remove element from DOM
+        deleteBtn.closest('.med-item').remove(); //   DOM theke item remove kori
     }
 });
 
-// Submit Prescription
+//   prescription submit korle status/counter update hobe
 document.getElementById("btn-submit-prescription").addEventListener("click", function(e) {
     e.preventDefault();
     
@@ -105,18 +102,18 @@ document.getElementById("btn-submit-prescription").addEventListener("click", fun
     }
 
     if (activePatientCard) {
-        // Update Status Badge to Completed
+        //   status badge update করি (In Call -> Completed)
         const badge = activePatientCard.querySelector('.status-badge');
         badge.textContent = 'Completed';
         badge.classList.remove('badge-blue');
         badge.classList.add('badge-green');
 
-        // Disable Prescribe Button
+        //   Prescribe button disable
         const prescribeBtn = activePatientCard.querySelector('.prescribe-btn');
         prescribeBtn.classList.replace('btn-green', 'btn-disabled');
         prescribeBtn.disabled = true;
 
-        // Update Counters
+        //   counter update kora 
         let inCallCount = parseInt(document.getElementById('count-incall').textContent);
         let completedCount = parseInt(document.getElementById('count-completed').textContent);
         
@@ -127,18 +124,20 @@ document.getElementById("btn-submit-prescription").addEventListener("click", fun
     closeModal();
 });
 
-// Close Modal
+//   modal close (Cancel button)
 document.getElementById("btn-cancel-prescription").addEventListener("click", function(e) {
     e.preventDefault();
     closeModal();
 });
 
+//   modal close (X icon)
 document.getElementById("modal-close-icon").addEventListener("click", function(e) {
     e.preventDefault();
     closeModal();
 });
 
 function closeModal() {
+    //   modal close korar somoy active patient reset kori
     activePatientCard = null;
     document.getElementById('prescription-modal').classList.remove('active');
 }
