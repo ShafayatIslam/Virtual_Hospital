@@ -1,0 +1,264 @@
+<!DOCTYPE html> <!-- HTML5 document -->
+
+<html lang="en"> <!-- HTML start -->
+
+<head>
+
+  <meta charset="UTF-8"> <!-- Character encoding -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+
+  <title>Register Page</title> <!-- Browser title -->
+
+  <!-- CSS file connect -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR START
+  ========================== -->
+  <header class="navbar">
+
+    <!-- Logo section -->
+    <div class="logo">
+
+      <span class="heart">♡</span>
+
+      <span>Virtual Hospital</span>
+
+    </div>
+
+    <!-- Login link -->
+    <a href="#" class="top-link" onclick="goToLoginPage()">
+
+      Already have an account? Login
+
+    </a>
+
+  </header>
+  <!-- NAVBAR END -->
+
+
+
+  <!-- =========================
+       MAIN PAGE START
+  ========================== -->
+  <main class="page">
+
+    <!-- Main heading -->
+    <h1>Create Your Account</h1>
+
+
+
+    <!-- =========================
+         PATIENT + DOCTOR CARD
+    ========================== -->
+    <section class="role-box">
+
+      <!-- Patient card -->
+      <div class="role-card">
+
+        <!-- Icon -->
+        <div class="icon">♙</div>
+
+        <!-- Title -->
+        <h2>Register as Patient</h2>
+
+        <!-- Subtitle -->
+        <p>Find doctors and book appointments</p>
+
+      </div>
+
+
+
+      <!-- Doctor card -->
+      <div class="role-card">
+
+        <!-- Icon -->
+        <div class="icon">⚕</div>
+
+        <!-- Title -->
+        <h2>Register as Doctor</h2>
+
+        <!-- Subtitle -->
+        <p>Manage your practice and patients</p>
+
+      </div>
+
+    </section>
+    <!-- CARD SECTION END -->
+
+
+
+    <!-- =========================
+         FORM CARD START
+    ========================== -->
+    <section class="form-card">
+
+      <form>
+
+        <!-- Two column grid -->
+        <div class="form-grid">
+
+          <!-- Full name -->
+          <div class="input-group">
+
+            <label>Full Name</label>
+
+            <input
+              type="text"
+              placeholder="John Doe"
+            >
+
+          </div>
+
+
+
+          <!-- Email -->
+          <div class="input-group">
+
+            <label>Email</label>
+
+            <input
+              type="email"
+              placeholder="john@example.com"
+            >
+
+          </div>
+
+
+
+          <!-- Username -->
+          <div class="input-group">
+
+            <label>Username</label>
+
+            <input
+              type="text"
+              placeholder="johndoe"
+            >
+
+          </div>
+
+
+
+          <!-- Phone -->
+          <div class="input-group">
+
+            <label>Phone Number</label>
+
+            <input
+              type="text"
+              placeholder="+1 234 567 8900"
+            >
+
+          </div>
+
+
+
+          <!-- Password -->
+          <div class="input-group">
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              placeholder="••••••••"
+            >
+
+          </div>
+
+
+
+          <!-- Confirm Password -->
+          <div class="input-group">
+
+            <label>Confirm Password</label>
+
+            <input
+              type="password"
+              placeholder="••••••••"
+            >
+
+          </div>
+
+        </div>
+        <!-- GRID END -->
+
+
+
+        <!-- Specialization -->
+        <div class="input-group full">
+
+          <label>Specialization</label>
+
+          <select>
+
+            <option>Select Specialization</option>
+
+            <option>Cardiology</option>
+
+            <option>Neurology</option>
+
+            <option>Dermatology</option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- Qualifications -->
+        <div class="input-group full">
+
+          <label>Qualifications</label>
+
+          <input
+            type="text"
+            placeholder="MBBS, MD (Cardiology)"
+          >
+
+        </div>
+
+
+
+        <!-- Date of Birth -->
+        <div class="input-group full">
+
+          <label>Date of Birth</label>
+
+          <input
+            type="text"
+            placeholder="mm/dd/yyyy"
+          >
+
+        </div>
+
+
+
+        <!-- Register button -->
+        <button class="register-btn" type="submit">
+
+          Register
+
+        </button>
+
+      </form>
+
+    </section>
+    <!-- FORM CARD END -->
+
+  </main>
+  <!-- PAGE END -->
+
+
+
+  <!-- JavaScript file connect -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

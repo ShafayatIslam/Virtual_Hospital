@@ -1,0 +1,433 @@
+/* =========================
+   DEFAULT STYLE
+========================= */
+
+*{
+  margin: 0; /* Default margin remove */
+  padding: 0; /* Default padding remove */
+  box-sizing: border-box; /* Width calculation easy */
+  font-family: Arial, sans-serif; /* Font set */
+}
+
+
+
+/* =========================
+   BODY STYLE
+========================= */
+
+body{
+
+  min-height: 100vh; /* Full screen height */
+
+  background: linear-gradient(
+    to bottom,
+    #eef6ff,
+    #ffffff
+  ); /* Light gradient background */
+
+}
+
+
+
+/* =========================
+   NAVBAR STYLE
+========================= */
+
+.navbar{
+
+  height: 60px; /* Navbar height */
+
+  background: white; /* White navbar */
+
+  display: flex; /* Same line e item */
+
+  align-items: center; /* Vertical center */
+
+  justify-content: space-between; /* Left right separate */
+
+  padding: 0 100px; /* Left right gap */
+
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+
+}
+
+
+
+/* Logo */
+
+.logo{
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+}
+
+
+
+/* Heart icon */
+
+.heart{
+
+  color: #005cff;
+
+  font-size: 40px;
+
+}
+
+
+
+/* Navbar link */
+
+.top-link{
+
+  color: #005cff;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+}
+
+
+
+/* =========================
+   LOGIN PAGE STYLE
+========================= */
+
+.main{
+
+  display: flex;
+
+  justify-content: center;
+
+  padding-top: 100px;
+
+}
+
+
+
+/* Login card */
+
+.login-card{
+
+  width: 400px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 35px;
+
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* Login title */
+
+.login-card h1{
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+}
+
+
+
+/* Patient button */
+
+.patient-btn{
+
+  width: 100%;
+
+  height: 45px;
+
+  background: #005cff;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  margin-bottom: 25px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+}
+
+
+
+/* Label */
+
+label{
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-weight: bold;
+
+}
+
+
+
+/* Input */
+
+input,
+select{
+
+  width: 100%;
+
+  height: 50px;
+
+  border: 1px solid #cfd6df;
+
+  border-radius: 8px;
+
+  padding: 0 15px;
+
+  margin-bottom: 25px;
+
+  font-size: 16px;
+
+}
+
+
+
+/* Login button */
+
+.login-btn{
+
+  width: 100%;
+
+  height: 50px;
+
+  background: #005cff;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+}
+
+
+
+/* Bottom text */
+
+.register-text{
+
+  text-align: center;
+
+  margin-top: 25px;
+
+}
+
+
+
+/* =========================
+   REGISTER PAGE STYLE
+========================= */
+
+.page{
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding-top: 70px;
+
+}
+
+
+
+/* Heading */
+
+.page h1{
+
+  margin-bottom: 50px;
+
+  font-size: 42px;
+
+}
+
+
+
+/* Patient doctor box */
+
+.role-box{
+
+  display: flex;
+
+  gap: 25px;
+
+  margin-bottom: 50px;
+
+}
+
+
+
+/* Role card */
+
+.role-card{
+
+  width: 400px;
+
+  height: 180px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  border: 1px solid #d6dce3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+
+/* Icon */
+
+.icon{
+
+  font-size: 50px;
+
+  color: #8f96a3;
+
+  margin-bottom: 15px;
+
+}
+
+
+
+/* Form card */
+
+.form-card{
+
+  width: 900px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 40px;
+
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* Grid layout */
+
+.form-grid{
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+}
+
+
+
+/* Full width input */
+
+.full{
+
+  margin-top: 20px;
+
+}
+
+
+
+/* Register button */
+
+.register-btn{
+
+  width: 100%;
+
+  height: 60px;
+
+  background: #005cff;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-top: 30px;
+
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+  .navbar{
+
+    padding: 0 20px;
+
+  }
+
+  .role-box{
+
+    flex-direction: column;
+
+  }
+
+  .role-card{
+
+    width: 90vw;
+
+  }
+
+  .form-card{
+
+    width: 90vw;
+
+  }
+
+  .form-grid{
+
+    grid-template-columns: 1fr;
+
+  }
+
+}

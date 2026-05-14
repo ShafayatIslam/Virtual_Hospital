@@ -1,0 +1,187 @@
+* { /* Sob element select kora hocche */
+  margin: 0; /* Default margin remove */
+  padding: 0; /* Default padding remove */
+  box-sizing: border-box; /* Width height calculation easy korar jonno */
+  font-family: Arial, sans-serif; /* Page er font set */
+}
+
+body { /* Full body design */
+  min-height: 180vh; /* Page height boro kora, jate scroll thake */
+  background: linear-gradient(to bottom, #eef6ff, #ffffff); /* Light blue theke white background */
+  color: #111; /* Text color black */
+}
+
+.navbar { /* Top navbar design */
+  height: 68px; /* Navbar height */
+  background: white; /* Navbar white color */
+  display: flex; /* Left right item same line e anar jonno */
+  align-items: center; /* Vertically center */
+  justify-content: space-between; /* Logo left, login link right */
+  padding: 0 80px; /* Left right gap */
+  box-shadow: 0 1px 6px rgba(0,0,0,0.15); /* Navbar er niche halka shadow */
+}
+
+.logo { /* Logo area design */
+  display: flex; /* Heart and text same line e */
+  align-items: center; /* Vertically center */
+  gap: 10px; /* Heart and text er gap */
+  font-size: 25px; /* Logo text size */
+  font-weight: bold; /* Logo text bold */
+}
+
+.heart { /* Heart icon design */
+  color: #0062ff; /* Heart blue color */
+  font-size: 43px; /* Heart size boro */
+  font-weight: normal; /* Heart normal weight */
+}
+
+.login-link { /* Top right login link */
+  color: #005cff; /* Link blue color */
+  text-decoration: none; /* Underline remove */
+  font-size: 18px; /* Link text size */
+}
+
+.page { /* Main content area */
+  width: 100%; /* Full width */
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Content upor theke niche */
+  align-items: center; /* Sob content center */
+  padding-top: 85px; /* Navbar theke gap */
+}
+
+.page h1 { /* Create Your Account heading */
+  font-size: 38px; /* Heading size */
+  font-weight: 800; /* Heading bold */
+  margin-bottom: 70px; /* Heading er niche gap */
+}
+
+.role-box { /* Patient Doctor card container */
+  display: flex; /* Duita card same line e */
+  gap: 25px; /* Card duitar majhe gap */
+  margin-bottom: 55px; /* Card er niche form er gap */
+}
+
+.role-card { /* Patient and doctor card common design */
+  width: 430px; /* Card width */
+  height: 190px; /* Card height */
+  background: white; /* Card white background */
+  border: 1px solid #d6dce3; /* Light border */
+  border-radius: 12px; /* Corner round */
+  display: flex; /* Card er content center korte */
+  flex-direction: column; /* Icon, title, text niche niche */
+  align-items: center; /* Horizontally center */
+  justify-content: center; /* Vertically center */
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08); /* Light shadow */
+}
+
+.icon { /* Card icon design */
+  color: #969daa; /* Icon gray color */
+  font-size: 55px; /* Icon size */
+  margin-bottom: 20px; /* Icon er niche gap */
+}
+
+.role-card h2 { /* Card title */
+  font-size: 22px; /* Title size */
+  margin-bottom: 14px; /* Title er niche gap */
+}
+
+.role-card p { /* Card subtitle */
+  font-size: 16px; /* Subtitle size */
+  color: #0f172a; /* Subtitle dark color */
+}
+
+.form-card { /* Main form white box */
+  width: 920px; /* Form card width */
+  background: white; /* Form background white */
+  border-radius: 14px; /* Form corner round */
+  padding: 62px 40px 58px; /* Vitorer gap */
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12); /* Form shadow */
+}
+
+.form-grid { /* First 6 inputs grid */
+  display: grid; /* Grid layout */
+  grid-template-columns: 1fr 1fr; /* Duita equal column */
+  column-gap: 32px; /* Column er majhe gap */
+  row-gap: 38px; /* Row er majhe gap */
+}
+
+.input-group { /* Prottek input group */
+  display: flex; /* Label and input column korte */
+  flex-direction: column; /* Label upor, input niche */
+}
+
+.input-group.full { /* Full width input group */
+  margin-top: 38px; /* Upore gap */
+}
+
+label { /* Sob label design */
+  font-size: 16px; /* Label text size */
+  color: #0f172a; /* Label dark color */
+  font-weight: 600; /* Label semi bold */
+  margin-bottom: 14px; /* Label and input er gap */
+}
+
+input, select { /* Input and select common style */
+  width: 100%; /* Full width */
+  height: 56px; /* Input height */
+  border: 1px solid #cfd7e2; /* Light gray border */
+  border-radius: 9px; /* Input corner round */
+  padding: 0 22px; /* Input er vitor left right gap */
+  font-size: 18px; /* Input text size */
+  outline: none; /* Click korle default outline remove */
+  background: white; /* Input background white */
+}
+
+input::placeholder { /* Placeholder text design */
+  color: #8f96a3; /* Placeholder gray */
+}
+
+select { /* Dropdown design */
+  cursor: pointer; /* Mouse nile hand icon */
+  color: #111; /* Dropdown text black */
+}
+
+.register-btn { /* Register button design */
+  width: 100%; /* Button full width */
+  height: 65px; /* Button height */
+  margin-top: 48px; /* Button er upore gap */
+  background: #005cff; /* Button blue color */
+  color: white; /* Button text white */
+  border: none; /* Border remove */
+  border-radius: 9px; /* Button corner round */
+  font-size: 20px; /* Button text size */
+  font-weight: bold; /* Button text bold */
+  cursor: pointer; /* Mouse nile hand icon */
+}
+
+.register-btn:hover { /* Button hover effect */
+  background: #004fe0; /* Hover korle blue ektu dark */
+}
+
+@media (max-width: 950px) { /* Mobile/tablet responsive start */
+
+  .navbar { /* Mobile navbar */
+    padding: 0 25px; /* Navbar padding komano */
+  }
+
+  .role-box { /* Mobile card container */
+    flex-direction: column; /* Card ekta niche ekta */
+  }
+
+  .role-card { /* Mobile card */
+    width: 90vw; /* Screen onujayi width */
+  }
+
+  .form-card { /* Mobile form */
+    width: 90vw; /* Screen onujayi form width */
+  }
+
+  .form-grid { /* Mobile input grid */
+    grid-template-columns: 1fr; /* One column kore dewa */
+  }
+
+  .page h1 { /* Mobile heading */
+    font-size: 32px; /* Heading size komano */
+  }
+
+}

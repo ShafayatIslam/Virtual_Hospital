@@ -1,0 +1,136 @@
+<!DOCTYPE html> <!-- Browser ke bola hocche eta HTML5 document -->
+
+<html lang="en"> <!-- HTML start + language English set -->
+
+<head> <!-- Head section start -->
+
+  <meta charset="UTF-8"> <!-- Sob text properly show korar jonno -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
+
+  <title>Virtual Hospital Login</title> <!-- Browser tab er title -->
+
+  <!-- CSS file connect -->
+  <link rel="stylesheet" href="style.css">
+
+</head> <!-- Head section end -->
+
+<body> <!-- Body start -->
+
+  <!-- =========================
+       TOP NAVBAR START
+  ========================== -->
+  <header class="navbar">
+
+    <!-- Left side logo -->
+    <div class="logo">
+
+      <!-- Heart icon -->
+      <span class="heart">♡</span>
+
+      <!-- Website name -->
+      <span>Virtual Hospital</span>
+
+    </div>
+
+    <!-- Register link -->
+    <a href="#" class="top-link" onclick="goToRegisterPage()">
+
+      <!-- 
+      onclick diye JavaScript function call hocche
+      Register page e niye jabe
+      -->
+      Don't have an account? Register
+
+    </a>
+
+  </header>
+  <!-- NAVBAR END -->
+
+
+
+  <!-- =========================
+       MAIN LOGIN SECTION START
+  ========================== -->
+  <main class="main">
+
+    <!-- Login card -->
+    <div class="login-card">
+
+      <!-- Login heading -->
+      <h1>Login</h1>
+
+      <!-- Patient button -->
+      <button class="patient-btn">
+        Patient
+      </button>
+
+
+
+      <!-- =========================
+           LOGIN FORM START
+      ========================== -->
+      <form>
+
+        <!-- Username label -->
+        <label>Username or Email</label>
+
+        <!-- Username input -->
+        <input
+          type="text"
+          placeholder="Enter your username or email"
+        >
+
+
+
+        <!-- Password label -->
+        <label>Password</label>
+
+        <!-- Password input -->
+        <input
+          type="password"
+          placeholder="Enter your password"
+        >
+
+
+
+        <!-- Login button -->
+        <button type="submit" class="login-btn">
+
+          Login
+
+        </button>
+
+      </form>
+      <!-- LOGIN FORM END -->
+
+
+
+      <!-- Bottom register text -->
+      <p class="register-text">
+
+        Don't have an account?
+
+        <!-- Register link -->
+        <a href="#" onclick="goToRegisterPage()">
+
+          Register here
+
+        </a>
+
+      </p>
+
+    </div>
+    <!-- Login card end -->
+
+  </main>
+  <!-- MAIN SECTION END -->
+
+
+
+  <!-- JavaScript file connect -->
+  <script src="script.js"></script>
+
+</body> <!-- Body end -->
+
+</html> <!-- HTML end -->
