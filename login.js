@@ -1,4 +1,4 @@
-let url = "http://localhost:8080/users/login";
+let url = "http://localhost:8080/user/login";
 
 document.addEventListener("DOMContentLoaded", function() {
     
@@ -74,8 +74,10 @@ async function login(username, password){
     if(userData.role === "PATIENT"){
         localStorage.setItem("userId", userData.id);
         window.location.href = "";
+        console.log("Patient login success");
     }else if(userData.role === "DOCTOR"){
         localStorage.setItem("userId", userData.id);
         window.location.href = "";
+        console.log("Doctor login success");
     }
 }

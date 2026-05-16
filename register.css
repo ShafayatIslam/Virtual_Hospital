@@ -1,0 +1,356 @@
+/* =========================
+   DEFAULT STYLE
+========================= */
+
+*{
+  margin: 0; /* Default margin remove */
+  padding: 0; /* Default padding remove */
+  box-sizing: border-box; /* Width calculation easy */
+  font-family: Arial, sans-serif; /* Font set */
+}
+
+/* =========================
+   BODY STYLE
+========================= */
+body{
+
+  min-height: 100vh; /* Full screen height */
+  background: linear-gradient(
+    to bottom,
+    #eef6ff,
+    #ffffff
+  ); /* Light gradient background */
+
+}
+
+/* =========================
+   NAVBAR STYLE
+========================= */
+
+.navbar{
+  height: 60px; /* Navbar height */
+  background: white; /* White navbar */
+  display: flex; /* Same line e item */
+  align-items: center; /* Vertical center */
+  justify-content: space-between; /* Left right separate */
+  padding: 0 100px; /* Left right gap */
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Heart icon */
+.heart{
+  color: #005cff;
+  font-size: 40px;
+}
+
+/* Navbar link */
+.top-link{
+  color: #005cff;
+  text-decoration: none;
+  font-size: 16px;
+
+}
+
+/* =========================
+   LOGIN PAGE STYLE
+========================= */
+.main{
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+}
+
+/* Login title */
+.login-card h1{
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+}
+
+/* Login card */
+.login-card{
+
+  width: 400px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 35px;
+
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+
+}
+
+
+/* Patient button !!!!!*/
+
+.patient-btn{
+  width: 100%;
+  height: 45px;
+  background: #005cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+/* Input Label */
+label{
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: rgba(0,0,0,0.7);
+}
+
+/* Input */
+input,
+select{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #cfd6df;
+  border-radius: 8px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+/* Login button */
+.login-btn{
+  width: 100%;
+  height: 50px;
+  background: #005cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+/* Bottom text */
+.register-text{
+
+  text-align: center;
+
+  margin-top: 25px;
+
+}
+
+
+/* =========================
+   REGISTER PAGE STYLE
+========================= */
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Heading */
+.page h1{
+  margin-bottom: 28px;
+  font-size: 35px;
+}
+
+/* Patient doctor box */
+.role-box{
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+/* Role card */
+.role-card{
+  width: 400px;
+  height: 180px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #d6dce3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-style{
+  border: 2px solid #005cff;
+}
+
+.green-style{
+  border: 2px solid green;
+}
+
+.role-card h3{
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.role-card p{
+  color: rgba(0,0,0,0.7);
+}
+
+/* Icon */
+.icon{
+  font-size: 60px;
+  color: #8f96a3;
+  margin-bottom: 15px;
+}
+
+/* Form card */
+.form-card{
+  width: 900px;
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+/* Grid layout */
+.form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Register button */
+.register-btn{
+  width: 100%;
+  height: 40px;
+  background: #005cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+
+/* overlay */
+.overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.popup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+.popup-msg{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.popup-msg i{
+  font-size: 50px;
+  color: red;
+}
+.popup-msg p{
+  font-size: 16px;
+  font-weight: bold;
+}
+.popup-btn{
+  border: none;
+  background:#2563eb;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.popup-btn:hover{
+  background: #1d4ed8;
+}
+
+.btn-group{
+  display: flex;
+  gap: 10px;
+}
+#reg-success i{
+  color: green;
+}
+
+
+/* --------------------- */
+.gap{
+  margin-top: 40px;
+}
+
+.hidden{
+  display: none;
+}
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:950px){
+
+  .navbar{
+
+    padding: 0 20px;
+
+  }
+
+  .role-box{
+
+    flex-direction: column;
+
+  }
+
+  .role-card{
+
+    width: 90vw;
+
+  }
+
+  .form-card{
+
+    width: 90vw;
+
+  }
+
+  .form-grid{
+
+    grid-template-columns: 1fr;
+
+  }
+
+}

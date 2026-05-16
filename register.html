@@ -1,0 +1,291 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Register Page</title> 
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <!-- Logo section -->
+    <div class="logo">
+      <span class="heart">♡</span>
+      <span>Virtual Hospital</span>
+    </div>
+
+    <!-- Login link -->
+    <a href="#" class="top-link" onclick="goToLoginPage()">
+      Already have an account? Login
+    </a>
+  </header>
+
+  <!-- MAIN PAGE START -->
+  <main class="page">
+    <!-- Main heading -->
+    <h1>Create Your Account</h1>
+
+
+    <!-- PATIENT + DOCTOR CARD -->
+    <section class="role-box">
+      <!-- Patient card -->
+      <div id="patient-card" class="role-card blue-style">
+        <!-- Icon -->
+        <div class="icon">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <!-- Title -->
+        <h3>Register as Patient</h3>
+        <!-- Subtitle -->
+        <p>Find doctors and book appointments</p>
+      </div>
+
+      <!-- Doctor card -->
+      <div id="doctor-card" class="role-card">
+        <!-- Icon -->
+        <div class="icon">
+          <i class="fa-solid fa-user-doctor"></i>
+        </div>
+        <!-- Title -->
+        <h3>Register as Doctor</h3>
+        <!-- Subtitle -->
+        <p>Manage your practice and patients</p>
+      </div>
+    </section>
+    <!-- CARD SECTION END -->
+
+
+    <!-- FORM CARD START -->
+    <section id="doctor-form" class="form-card hidden">
+      <form>
+        <!-- Two column grid -->
+        <div class="form-grid">
+          <!-- Full name -->
+          <div class="input-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Mr. John" required>
+          </div>
+
+          <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe">
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@example.com" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="+1 234 567 8900">
+          </div>
+
+          <!-- Specialization -->
+          <div class="input-group">
+            <label>Specialization</label>
+            <select>
+              <option>Select Specialization</option>
+              <option>Cardiology</option>
+              <option>Neurology</option>
+              <option>Dermatology</option>
+            </select>
+          </div>
+
+          <!-- Qualifications -->
+          <div class="input-group">
+            <label>Qualifications</label>
+            <input type="text" placeholder="MBBS, MD (Cardiology)" required>
+          </div>
+
+          <!-- Gender -->
+          <div class="input-group">
+            <label>Gender</label>
+            <select>
+              <option>MALE</option>
+              <option>FEMALE</option>
+              <option>OTHER</option>
+            </select>
+          </div>
+
+          <!-- Date of Birth -->
+          <div class="input-group">
+            <label>Date of Birth</label>
+            <input type="date" placeholder="mm/dd/yyyy" required>
+          </div>
+        </div>
+        <!-- GRID END -->
+
+        <div class="gap"></div>
+
+        <div class="form-grid">
+          <!-- Username -->
+          <div class="input-group">
+            <label>Username</label>
+            <input type="text" placeholder="johndoe" required>
+          </div>
+
+          <!-- License No. -->
+          <div class="input-group">
+            <label>License Number</label>
+            <input type="text" placeholder="AA-89743" required>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input-group">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+        </div>
+
+        <!-- Register button -->
+        <button class="register-btn" type="submit">Register</button>
+      </form>
+    </section>
+
+    <section id="patient-form" class="form-card">
+      <form>
+        <!-- Two column grid -->
+        <div class="form-grid">
+          <!-- Full name -->
+          <div class="input-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Mr. John" required>
+          </div>
+
+          <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe">
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@example.com" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="+1 234 567 8900">
+          </div>
+
+          <!-- Blood group -->
+          <div class="input-group">
+            <label>Blood Group</label>
+            <select>
+              <option>A+</option>
+              <option>O-</option>
+              <option>AB+</option>
+            </select>
+          </div>
+
+          <!-- Gender -->
+          <div class="input-group">
+            <label>Gender</label>
+            <select>
+              <option>MALE</option>
+              <option>FEMALE</option>
+              <option>OTHER</option>
+            </select>
+          </div>
+
+          <!-- Date of Birth -->
+          <div class="input-group">
+            <label>Date of Birth</label>
+            <input type="date" placeholder="mm/dd/yyyy" required>
+          </div>
+
+          <!-- Address -->
+          <div class="input-group">
+            <label>Address</label>
+            <input type="text" placeholder="Enter your address (optional)">
+          </div>
+
+          <!-- Emergency Contact -->
+          <div class="input-group">
+            <label>Emergency Contact</label>
+            <input type="text" placeholder="+1 234 567 8900 (optional)">
+          </div>
+
+          <div class="input-group">
+            <label>Emergency Contact Relation</label>
+            <input type="text" placeholder="Father">
+          </div>
+        </div>
+        <!-- GRID END -->
+
+        <div class="gap"></div>
+
+        <!-- Username -->
+        <div style="margin-bottom: 10px;" class="input-group">
+          <label>Username</label>
+          <input type="text" placeholder="johndoe" required>
+        </div>
+        <div class="form-grid">
+          <!-- Password -->
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input-group">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+        </div>
+
+        <!-- Register button -->
+        <button class="register-btn" type="submit">Register</button>
+      </form>
+    </section>
+
+    <!-- PopUp -->
+    <div id="overlay" class="hidden">
+      <div id="password-confirmation" class="hidden">
+        <div class="popup-msg">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <p>Passwords do not match!</p>
+        </div>
+        <button id="ok-btn" class="popup-btn">Ok</button>
+      </div>
+      <div id="error-alert" class="hidden">
+        <div class="popup-msg">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <p>Something went wrong</p>
+        </div>
+        <button id="try-btn" class="popup-btn">Try again</button>
+      </div>
+      <div id="reg-success" class="hidden">
+        <div class="popup-msg">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>Your account created successfully.</p>
+        </div>
+        <div class="btn-group">
+          <button id="cancel-btn" class="popup-btn">Cancel</button>
+          <button id="go-login-page" class="popup-btn">Go to login page</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- PAGE END -->
+
+
+  <!-- JavaScript file connect -->
+  <script src="register.js"></script>
+
+</body>
+
+</html>
