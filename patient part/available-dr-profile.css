@@ -1,0 +1,359 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-page: #f9fafb;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --green-success: #16a34a;
+    --yellow-star: #eab308;
+    --danger-red: #dc2626;
+
+    --skill-bg: #eff6ff;
+    --skill-text: #2563eb;
+    --progress-bg: #f3f4f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+}
+
+/* Utilities */
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.text-yellow {
+    color: var(--yellow-star);
+}
+
+.text-green {
+    color: var(--green-success);
+}
+
+.text-red {
+    color: var(--danger-red) !important;
+    font-weight: 600;
+}
+
+.icon-blue {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+/* Header */
+.top-header {
+    background-color: var(--card-bg);
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    padding-bottom: 50px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 25px;
+    transition: 0.2s;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Doctor Profile Card */
+.profile-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.profile-header-top {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.avatar-large {
+    width: 90px;
+    height: 90px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.profile-title-area h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.specialty-text {
+    color: var(--primary-blue);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.inline-info-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.inline-info-strip span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+}
+
+/* Profile Sections */
+.profile-section {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.border-none {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.profile-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-section p {
+    line-height: 1.6;
+}
+
+.education-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.education-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* Skills Badges */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-badge {
+    background-color: var(--skill-bg);
+    color: var(--skill-text);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Locations & Slots */
+.section-title-wrapper {
+    margin-bottom: 20px;
+}
+
+.section-title-wrapper h2 {
+    font-size: 1.4rem;
+}
+
+.locations-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.location-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.location-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.location-header h3 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+}
+
+.slots-header {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+}
+
+/* Grid for Slots */
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.slot-item {
+    border: 1px solid var(--primary-blue);
+    border-radius: 10px;
+    padding: 16px;
+    background-color: #f8faff;
+    display: flex;
+    flex-direction: column;
+}
+
+.slot-item:has(.btn-disabled) {
+    border-color: var(--border-color);
+    background-color: var(--card-bg);
+}
+
+.slot-time {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.capacity-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+/* Custom Progress Bar */
+.progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: var(--progress-bg);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.fill-blue {
+    background-color: var(--primary-blue);
+}
+
+.fill-red {
+    background-color: var(--danger-red);
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.06);
+}
+
+.btn-blue {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-blue:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(17, 24, 39, 0.10);
+}
+
+.btn-disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.06);
+}
+
+.btn:focus-visible {
+    outline: 2px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 2px;
+}

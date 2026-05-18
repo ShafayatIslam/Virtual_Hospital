@@ -29,9 +29,17 @@ body {
 }
 
 /* Utilities */
-.text-muted { color: var(--text-muted); }
-.text-yellow { color: var(--yellow-star); }
-.icon-blue { color: var(--primary-blue); }
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-yellow {
+    color: var(--yellow-star);
+}
+
+.icon-blue {
+    color: var(--primary-blue);
+}
 
 /* Header */
 .top-header {
@@ -213,13 +221,13 @@ body {
 }
 
 .day-block:nth-child(3n + 2) {
-     background-color: rgb(213, 250, 188);
+    background-color: rgb(213, 250, 188);
     border: 1px solid rgb(255, 0, 208);
     font-weight: bold;
 }
 
 .day-block:nth-child(3n) {
-     background-color: rgb(245, 203, 254);
+    background-color: rgb(245, 203, 254);
     border: 1px solid rgb(102, 244, 30);
     font-weight: bold;
 }
@@ -238,14 +246,16 @@ body {
 /* Buttons */
 .btn {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     border: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.08rem;
+    letter-spacing: 0.2px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.15s ease, box-shadow 0.2s ease;
     margin-top: auto; /* Pushes button to bottom if cards are different heights */
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.06);
 }
 
 .btn-blue {
@@ -255,6 +265,18 @@ body {
 
 .btn-blue:hover {
     background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(17, 24, 39, 0.10);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(17, 24, 39, 0.06);
+}
+
+.btn:focus-visible {
+    outline: 2px solid rgba(37, 99, 235, 0.35);
+    outline-offset: 2px;
 }
 
 /* Responsive */
