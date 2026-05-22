@@ -53,6 +53,7 @@ patientForm.addEventListener("submit", async (e) => {
             overlay.classList.replace("overlay", "hidden");
             popup.classList.replace("popup", "hidden");
         });
+        return;
     }
 
     const patientData = {
@@ -84,6 +85,9 @@ patientForm.addEventListener("submit", async (e) => {
         overlay.classList.replace("hidden", "overlay");
         popup.classList.replace("hidden", "popup");
 
+        const error = await response.json();
+        popup.querySelector("p").textContent = error.message;
+
         let button = popup.querySelector("button");
         button.addEventListener("click", () => {
             overlay.classList.replace("overlay", "hidden");
@@ -93,22 +97,7 @@ patientForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    let overlay = document.getElementById('overlay');
-    let popup = document.getElementById('reg-success');
-    overlay.classList.replace("hidden", "overlay");
-    popup.classList.replace("hidden", "popup");
-
-    let cancel_btn = document.getElementById('cancel-btn');
-    let go_to_login_btn = document.getElementById('go-to-login-page');
-
-    cancel_btn.addEventListener("click", () => {
-        overlay.classList.replace("overlay", "hidden");
-        popup.classList.replace("popup", "hidden");
-    });
-
-    go_to_login_btn.addEventListener("click", () => {
-        window.location.href = "";
-    });
+    window.location.href = "login.html";
 });
 
 doctorForm.addEventListener("submit", async (e) => {
@@ -130,6 +119,7 @@ doctorForm.addEventListener("submit", async (e) => {
             overlay.classList.replace("overlay", "hidden");
             popup.classList.replace("popup", "hidden");
         });
+        return;
     }
 
     const doctorData = {
@@ -159,6 +149,9 @@ doctorForm.addEventListener("submit", async (e) => {
         overlay.classList.replace("hidden", "overlay");
         popup.classList.replace("hidden", "popup");
 
+        const error = await response.json();
+        popup.querySelector("p").textContent = error.message;
+        
         let button = popup.querySelector("button");
         button.addEventListener("click", () => {
             overlay.classList.replace("overlay", "hidden");
@@ -168,20 +161,5 @@ doctorForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    let overlay = document.getElementById('overlay');
-    let popup = document.getElementById('reg-success');
-    overlay.classList.replace("hidden", "overlay");
-    popup.classList.replace("hidden", "popup");
-
-    let cancel_btn = document.getElementById('cancel-btn');
-    let go_to_login_btn = document.getElementById('go-to-login-page');
-
-    cancel_btn.addEventListener("click", () => {
-        overlay.classList.replace("overlay", "hidden");
-        popup.classList.replace("popup", "hidden");
-    });
-
-    go_to_login_btn.addEventListener("click", () => {
-        window.location.href = "";
-    });
+    window.location.href = "login.html";
 })

@@ -98,7 +98,7 @@ nav {
   background: #fff;
   border-radius: 14px;
   padding: 16px 12px;
-  width: 200px;
+  width: 240px;
   min-width: 160px;
   height: fit-content;
   display: flex;
@@ -107,13 +107,40 @@ nav {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+.sidebar-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-logo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  text-align: center;
+  line-height: 100px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.user-info{
+  text-align: center;
+}
+
+.gap{
+  margin: 5px 0;
+}
+
 .sidebar-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 14px;
+  padding: 11px 20px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 20px;
   color: #555;
   cursor: pointer;
   transition: background 0.15s;
