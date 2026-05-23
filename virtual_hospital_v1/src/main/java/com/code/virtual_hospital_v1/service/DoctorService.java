@@ -17,9 +17,4 @@ public class DoctorService {
         this.doctorRepo = doctorRepo;
     }
 
-    public void saveDoctorDetails(DoctorDetailsRequest request){
-        DoctorDetails details = DoctorDetailsRequest.toDoctorDetails(request);
-        details.setUser(userRepo.findById(request.getUserId()).orElse(null));
-        doctorRepo.save(details);
-    }
 }

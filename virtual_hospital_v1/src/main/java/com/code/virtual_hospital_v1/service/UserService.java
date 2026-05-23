@@ -1,12 +1,16 @@
 package com.code.virtual_hospital_v1.service;
 
+import com.code.virtual_hospital_v1.dto.DoctorDetailsRequest;
+import com.code.virtual_hospital_v1.dto.PatientDetailsRequest;
 import com.code.virtual_hospital_v1.dto.UserRequest;
 import com.code.virtual_hospital_v1.dto.UserResponse;
-import com.code.virtual_hospital_v1.exception.InvalidPasswordException;
-import com.code.virtual_hospital_v1.exception.InvalidUsernameException;
-import com.code.virtual_hospital_v1.exception.UsernameConflictException;
+import com.code.virtual_hospital_v1.exception.*;
+import com.code.virtual_hospital_v1.model.DoctorDetails;
+import com.code.virtual_hospital_v1.model.PatientDetails;
 import com.code.virtual_hospital_v1.model.Role;
 import com.code.virtual_hospital_v1.model.User;
+import com.code.virtual_hospital_v1.repository.DoctorDetailsRepo;
+import com.code.virtual_hospital_v1.repository.PatientDetailsRepo;
 import com.code.virtual_hospital_v1.repository.UserRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,27 +22,58 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepo repo;
-    private final PasswordEncoder passwordEncoder;
+    final private UserRepo repo;
+    final private PatientDetailsRepo patientRepo;
+    final private DoctorDetailsRepo doctorRepo;
+    final private  PasswordEncoder passwordEncoder;
 
     //Constructor injection
-    public UserService(UserRepo repo, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepo repo, PatientDetailsRepo patientRepo, DoctorDetailsRepo doctorRepo, PasswordEncoder passwordEncoder) {
         this.repo = repo;
+        this.patientRepo = patientRepo;
+        this.doctorRepo = doctorRepo;
         this.passwordEncoder = passwordEncoder;
     }
 
-    //User Services
-    public Long registerUser(String username, String password, Role role){
-        if(repo.existsByUsername(username)){
-            throw new UsernameConflictException(username); //Here execution stops and spring creates http response for this exception.
+    //Registration
+    public void registerPatient(PatientDetailsRequest request){
+        if(repo.existsByUsername(request.getUsername())){
+            throw new UsernameConflictException(request.getUsername()); //Here execution stops and spring creates http response for this exception.
+        }
+        if(patientRepo.existsByEmail(request.getEmail()) || doctorRepo.existsByEmail(request.getEmail())){
+            throw new EmailConflictException();
         }
 
         User user = new User();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setRole(role);
+        user.setUsername(request.getUsername());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(request.getRole());
 
-        return repo.save(user).getId();
+        User savedUser = repo.save(user);
+
+        PatientDetails details = PatientDetailsRequest.toPatientDetails(request);
+        details.setUser(savedUser);
+        patientRepo.save(details);
+    }
+
+    public void registerDoctor(DoctorDetailsRequest request){
+        if(repo.existsByUsername(request.getUsername())){
+            throw new UsernameConflictException(request.getUsername()); //Here execution stops and spring creates http response for this exception.
+        }
+        if(patientRepo.existsByEmail(request.getEmail()) || doctorRepo.existsByEmail(request.getEmail())){
+            throw new EmailConflictException();
+        }
+
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(request.getRole());
+
+        User savedUser = repo.save(user);
+
+        DoctorDetails details = DoctorDetailsRequest.toDoctorDetails(request);
+        details.setUser(savedUser);
+        doctorRepo.save(details);
     }
 
     public void deleteUser(Long id){
@@ -58,11 +93,10 @@ public class UserService {
     public UserResponse login(UserRequest ur){
         User user = repo.findByUsername(ur.getUsername());
         if(user == null){
-            throw new InvalidUsernameException(ur.getUsername());
+            throw new InvalidUsernameOrPasswordException();
         }
-
         if(!passwordEncoder.matches(ur.getPassword(), user.getPassword())){
-            throw new InvalidPasswordException(ur.getUsername());
+            throw new InvalidUsernameOrPasswordException();
         }
 
         return UserResponse.fromUser(user);
