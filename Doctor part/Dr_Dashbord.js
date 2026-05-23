@@ -1,4 +1,10 @@
 let activePatientCard = null; 
+// Patients dropdown toggle
+document.getElementById("patients-toggle").addEventListener("click", function() {
+    const dropdown = document.getElementById("patients-dropdown");
+    const isOpen = dropdown.classList.toggle("open");
+    this.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
 //patient list er moddhe click event handle (Call & Prescribe)
 document.getElementById("patients-list").addEventListener("click", function(e) {
     

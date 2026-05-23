@@ -79,17 +79,22 @@
 
                     <!-- Patients Header & Counters -->
                     <div class="patients-header">
-                        <h3>Patients</h3>
-                        <div class="status-counters">
-                          
-                            <span class="badge badge-yellow"><span id="count-waiting">2</span> Waiting</span>
-                            <span class="badge badge-blue"><span id="count-incall">0</span> In Call</span>
-                            <span class="badge badge-green"><span id="count-completed">0</span> Completed</span>
-                        </div>
+                        <button type="button" class="patients-toggle" id="patients-toggle" aria-expanded="false">
+                            <div class="patients-title">
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                                <h3>Patients</h3>
+                            </div>
+                            <div class="status-counters">
+                                <span class="badge badge-yellow"><span id="count-waiting">2</span> Waiting</span>
+                                <span class="badge badge-blue"><span id="count-incall">0</span> In Call</span>
+                                <span class="badge badge-green"><span id="count-completed">0</span> Completed</span>
+                            </div>
+                        </button>
                     </div>
 
                     <!-- Static Patient List for Backend Dev -->
-                    <div class="patients-list" id="patients-list">
+                    <div class="patients-dropdown" id="patients-dropdown">
+                        <div class="patients-list" id="patients-list">
                         
                         <!-- Patient Card 1 -->
                         <div class="patient-card">
@@ -109,7 +114,7 @@
                             </div>
                             <div class="patient-actions">
                                 <button type="button" class="btn btn-blue call-btn">
-                                    <i class="fa-solid fa-phone"></i> Call
+                                    <i class="fa-solid fa-headset"></i> Call
                                 </button>
                                 <button type="button" class="btn btn-disabled prescribe-btn" disabled>
                                     <i class="fa-regular fa-file-lines"></i> Provide Prescription
@@ -135,7 +140,7 @@
                             </div>
                             <div class="patient-actions">
                                 <button type="button" class="btn btn-blue call-btn">
-                                    <i class="fa-solid fa-phone"></i> Call
+                                    <i class="fa-solid fa-headset"></i> Call
                                 </button>
                                 <button type="button" class="btn btn-disabled prescribe-btn" disabled>
                                     <i class="fa-regular fa-file-lines"></i> Provide Prescription
@@ -143,6 +148,7 @@
                             </div>
                         </div>
 
+                        </div>
                     </div>
                 </section>
             </div>
