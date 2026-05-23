@@ -23,11 +23,7 @@ public class PatientController {
 
     @PostMapping("/patient/registration")
     public ResponseEntity<String> patientRegistration(@RequestBody PatientDetailsRequest request){
-        Long id = userService.registerUser(request.getUsername(), request.getPassword(), request.getRole());
-
-        request.setUserId(id);
-        patientService.savePatientDetails(request);
-
+        userService.registerPatient(request);
         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
     }
 }
