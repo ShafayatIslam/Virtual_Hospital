@@ -1,37 +1,34 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    
-    // BACK BUTTON
+    // BACK BUTTON (dashboard e back jawar jonno)
     document.getElementById("back-btn").addEventListener("click", function(e) {
         e.preventDefault();
          window.location.href = "Dr_Dashbord.html"; // home html er link
     });
 
-
+    // Appointment list er parent container
     const appointmentContainer = document.getElementById("appointment-container");
 
     appointmentContainer.addEventListener("click", function(e) {
-        
-        // 1. Hospital Level Accordion Toggle (Exclusive)
+        // 1. Hospital Level Accordion Toggle (ekta open thakbe)
         const hospitalHeader = e.target.closest('.hospital-header');
         if (hospitalHeader) {
             e.preventDefault();
             const currentHospital = hospitalHeader.parentElement;
             const allHospitals = document.querySelectorAll('.hospital-card');
 
-            // Close all other hospitals
+            // Onno hospital gula close kore dei
             allHospitals.forEach(hospital => {
                 if (hospital !== currentHospital) {
                     hospital.classList.remove('open');
                 }
             });
-            // Toggle current hospital
+            // Current hospital toggle
             currentHospital.classList.toggle('open');
             return;
         }
 
 
-        // 2. Time Slot Level Accordion Toggle (Exclusive within Hospital)
+        // 2. Time Slot Level Accordion Toggle (hospital er vitore ekta open)
         const timeslotHeader = e.target.closest('.timeslot-header');
         if (timeslotHeader) {
             e.preventDefault();
@@ -39,13 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
             const parentHospitalBody = currentTimeslot.closest('.hospital-body');
             const allTimeslots = parentHospitalBody.querySelectorAll('.timeslot-card');
 
-            // Close all other timeslots inside this hospital
+            // Ei hospital er vitore onno timeslot gula close kore dei
             allTimeslots.forEach(timeslot => {
                 if (timeslot !== currentTimeslot) {
                     timeslot.classList.remove('open');
                 }
             });
-            // Toggle current timeslot
+            // Current timeslot toggle
             currentTimeslot.classList.toggle('open');
             return;
         }
@@ -57,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             const patientCard = callBtn.closest('.patient-card');
 
-            // A. Update Status Badge (Waiting -> Called)
+            // A. Status badge update (Waiting -> Called)
             const badgeContainer = patientCard.querySelector('.badge-container');
             if (badgeContainer) {
                 badgeContainer.innerHTML = `
@@ -67,12 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 `;
             }
 
-            // B. Disable Call Button
+            // B. Call button disable
             callBtn.disabled = true;
             callBtn.classList.remove('btn-blue');
             callBtn.classList.add('btn-disabled');
 
-            // C. Enable Prescribe Button
+            // C. Prescribe button enable
             const prescribeBtn = patientCard.querySelector('.btn-prescribe');
             if (prescribeBtn) {
                 prescribeBtn.disabled = false;
@@ -80,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 prescribeBtn.classList.add('btn-primary');
             }
 
-            // D. Update "Consulted" Counter Dynamically
+            // D. "Consulted" counter update (0/3 -> 1/3)
             const timeslotCard = patientCard.closest('.timeslot-card');
             const counterBadge = timeslotCard.querySelector('.consulted-badge');
             
@@ -98,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // 4. Prescribe Button Prevention (Just for demo structure)
+        // 4. Prescribe Button Prevention (demo structure)
         const prescribeBtn = e.target.closest('.btn-prescribe');
         if (prescribeBtn && !prescribeBtn.disabled) {
             e.preventDefault();

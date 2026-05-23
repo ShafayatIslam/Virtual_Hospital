@@ -1,59 +1,61 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // DOM theke important element gula dhora
     const btnPatient = document.getElementById("btn-patient");
     const btnDoctor = document.getElementById("btn-doctor");
     const loginForm = document.getElementById("login-form");
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
-    
+
+    // default vabe patient role thakbe
     let currentRole = "patient";
-    // TOGGLE LOGIC
-   
+
+    // Patient button click korle role + theme update hoy
     btnPatient.addEventListener("click", function(e) {
         e.preventDefault();
         currentRole = "patient";
-        
-        // Change Theme Classes on Body
+
+        // Body te patient theme set kora
         document.body.classList.remove("theme-doctor");
         document.body.classList.add("theme-patient");
-        
-        // Update Button Active States
+
+        // Active button state update
         btnPatient.classList.add("active");
         btnDoctor.classList.remove("active");
     });
 
-    // Click on Doctor Button
+    // Doctor button click korle role + theme update hoy
     btnDoctor.addEventListener("click", function(e) {
         e.preventDefault();
         currentRole = "doctor";
-        
-        // Change Theme Classes on Body
+
+        // Body te doctor theme set kora
         document.body.classList.remove("theme-patient");
         document.body.classList.add("theme-doctor");
-        
-        // Update Button Active States
+
+        // Active button state update
         btnDoctor.classList.add("active");
         btnPatient.classList.remove("active");
     });
 
-
-    // LOGIN FORM SUBMISSION LOGIC
+    // Login form submit handle
     loginForm.addEventListener("submit", function(e) {
-        // Prevent page reload
+        // page reload off kora
         e.preventDefault();
 
         const usernameValue = usernameInput.value.trim();
         const passwordValue = passwordInput.value.trim();
 
-        // Validation: Check if fields are empty
+        // empty hole alert deya
         if (usernameValue === "" || passwordValue === "") {
             alert("Please enter both username and password to login.");
-            return; 
+            return;
         }
+
+        // role onujayi next action
         if (currentRole === "doctor") {
             window.location.href = "home.html";
         } else if (currentRole === "patient") {
             alert(" Under Construction :)");
         }
     });
-
 });

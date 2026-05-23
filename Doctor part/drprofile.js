@@ -1,6 +1,7 @@
-// Profile data backup for Cancel action
+// Profile data backup for Cancel action (cancel dile ager data restore hobe)
 let profileBackup = {};
 
+// 1. PROFILE SECTION EVENTS
 document.getElementById("profile-edit-btn").addEventListener("click", function(e) {
     e.preventDefault(); // ata dile bar bar reload hoibo na
     toggleEdit('profile-section', true);
@@ -33,7 +34,7 @@ document.getElementById("edu-add-btn").addEventListener("click", function(e) {
     addEducation();
 });
 
-// Event Delegation for Delete Buttons
+// Event Delegation for Delete Buttons (list er vitore delete handle)
 document.getElementById("education-list").addEventListener("click", function(e) {
     const deleteBtn = e.target.closest('.delete-btn');
     if (deleteBtn) {
@@ -57,7 +58,7 @@ document.getElementById("exp-add-btn").addEventListener("click", function(e) {
     addExperience();
 });
 
-// Event Delegation for Delete Buttons
+// Event Delegation for Delete Buttons (list er vitore delete handle)
 document.getElementById("experience-list").addEventListener("click", function(e) {
     const deleteBtn = e.target.closest('.delete-btn');
     if (deleteBtn) {
@@ -93,6 +94,7 @@ document.getElementById("skills-list").addEventListener("click", function(e) {
 
 // HELPER LOGIC FUNCTIONS (No Changes Here)
 
+// Section edit mode on/off toggle
 function toggleEdit(sectionId, isEditing) {
     const section = document.getElementById(sectionId);
     if(!section) return;
@@ -108,6 +110,7 @@ function toggleEdit(sectionId, isEditing) {
         saveCancelBtns.classList.add('hidden');
     }
 
+    // Profile section er input/textarea enable/disable
     if(sectionId === 'profile-section') {
         const inputs = section.querySelectorAll('input, textarea');
         if(isEditing) {
@@ -124,6 +127,7 @@ function toggleEdit(sectionId, isEditing) {
         }
     }
 
+    // Profile chara baki section gula te delete/add field control
     if(sectionId !== 'profile-section') {
         const deleteBtns = section.querySelectorAll('.delete-btn, .tag-delete');
         const addForm = section.querySelector('.add-form');
@@ -144,6 +148,7 @@ function toggleEdit(sectionId, isEditing) {
     }
 }
 
+// Cancel dile profile er ager data restore
 function cancelProfile() {
     const section = document.getElementById('profile-section');
     const inputs = section.querySelectorAll('input, textarea');
@@ -157,6 +162,7 @@ function cancelProfile() {
     toggleEdit('profile-section', false);
 }
 
+// Education item add kora
 function addEducation() {
     const degreeInput = document.getElementById('new-edu-degree');
     const instInput = document.getElementById('new-edu-inst');
@@ -192,6 +198,7 @@ function addEducation() {
     }
 }
 
+// Experience item add kora
 function addExperience() {
     const posInput = document.getElementById('new-exp-pos');
     const hospInput = document.getElementById('new-exp-hosp');
@@ -227,6 +234,7 @@ function addExperience() {
     }
 }
 
+// Skill tag add kora
 function addSkill() {
     const skillInput = document.getElementById('new-skill-name');
     const skill = skillInput.value.trim();
