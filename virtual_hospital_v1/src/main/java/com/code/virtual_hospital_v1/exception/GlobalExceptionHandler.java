@@ -21,4 +21,28 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
+
+    @ExceptionHandler(EmailConflictException.class)
+    public ResponseEntity<ErrorResponse> handleEmailConflict(EmailConflictException ex){
+        ErrorResponse response = new ErrorResponse(
+                112,
+                "Email Conflict",
+                ex.getMessage(),
+                LocalDateTime.now().toString()
+        );
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(InvalidUsernameOrPasswordException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidUsernameOrPassword(InvalidUsernameOrPasswordException exc){
+        ErrorResponse response = new ErrorResponse(
+                113,
+                "Invalid Username or Password!!",
+                exc.getMessage(),
+                LocalDateTime.now().toString()
+        );
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
 }
