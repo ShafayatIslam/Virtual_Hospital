@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UsernameConflictException.class)
     public ResponseEntity<ErrorResponse> handleUsernameConflict(UsernameConflictException ex){
         ErrorResponse response = new ErrorResponse(
-                111,
+                1,
                 "Username Conflict",
                 ex.getMessage(),
                 LocalDateTime.now().toString()
@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailConflictException.class)
     public ResponseEntity<ErrorResponse> handleEmailConflict(EmailConflictException ex){
         ErrorResponse response = new ErrorResponse(
-                112,
+                2,
                 "Email Conflict",
                 ex.getMessage(),
                 LocalDateTime.now().toString()
@@ -37,12 +37,24 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidUsernameOrPasswordException.class)
     public ResponseEntity<ErrorResponse> handleInvalidUsernameOrPassword(InvalidUsernameOrPasswordException exc){
         ErrorResponse response = new ErrorResponse(
-                113,
+                3,
                 "Invalid Username or Password!!",
                 exc.getMessage(),
                 LocalDateTime.now().toString()
         );
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException exc){
+        ErrorResponse response = new ErrorResponse(
+                4,
+                "Not Found!!",
+                exc.getMessage(),
+                LocalDateTime.now().toString()
+        );
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 }
