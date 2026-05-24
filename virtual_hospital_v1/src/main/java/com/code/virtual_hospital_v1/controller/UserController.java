@@ -1,7 +1,5 @@
 package com.code.virtual_hospital_v1.controller;
 
-import com.code.virtual_hospital_v1.dto.DoctorDetailsRequest;
-import com.code.virtual_hospital_v1.dto.PatientDetailsRequest;
 import com.code.virtual_hospital_v1.dto.UserRequest;
 import com.code.virtual_hospital_v1.dto.UserResponse;
 import com.code.virtual_hospital_v1.service.UserService;
