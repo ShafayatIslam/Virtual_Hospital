@@ -1,6 +1,7 @@
 package com.code.virtual_hospital_v1.controller;
 
 import com.code.virtual_hospital_v1.dto.PatientDetailsRequest;
+import com.code.virtual_hospital_v1.dto.PatientDetailsResponse;
 import com.code.virtual_hospital_v1.service.PatientService;
 import com.code.virtual_hospital_v1.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -25,5 +26,17 @@ public class PatientController {
     public ResponseEntity<String> patientRegistration(@RequestBody PatientDetailsRequest request){
         userService.registerPatient(request);
         return new ResponseEntity<>("Registration successful", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/patient/details/{id}")
+    public ResponseEntity<PatientDetailsResponse> getPatientDetails(@PathVariable Long id){
+        PatientDetailsResponse response = patientService.getPatientDetails(id);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PutMapping("patient/details/{id}")
+    public ResponseEntity<String> updatePatientDetails(@PathVariable Long id, @RequestBody PatientDetailsRequest request){
+        patientService.updatePatientDetails(id, request);
+        return ResponseEntity.status(HttpStatus.OK).body("Details Updated Successfully.");
     }
 }
