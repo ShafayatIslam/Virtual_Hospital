@@ -41,6 +41,23 @@ body {
     color: var(--primary-blue);
 }
 
+.logo .fa-heart-pulse {
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.35);
+    animation: heartPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo .fa-heart-pulse { animation: none; }
+}
+
 /* Header */
 .top-header {
     background-color: var(--card-bg);

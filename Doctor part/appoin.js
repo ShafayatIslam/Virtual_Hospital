@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const prescribeBtn = e.target.closest('.btn-prescribe');
         if (prescribeBtn && !prescribeBtn.disabled) {
             e.preventDefault();
-       
+            // ekhon just prevent, pore modal open logic add kora jabe
             // openPrescriptionModal();
         }
     });

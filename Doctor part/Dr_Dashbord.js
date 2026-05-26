@@ -5,6 +5,7 @@ let activePatientCard = null;
 document.getElementById("patients-toggle").addEventListener("click", function() {
     const dropdown = document.getElementById("patients-dropdown");
     const isOpen = dropdown.classList.toggle("open");
+    // Accessibility er jonno aria-expanded update
     this.setAttribute("aria-expanded", isOpen ? "true" : "false");
 });
 
@@ -72,6 +73,7 @@ document.getElementById("btn-add-medicine").addEventListener("click", function(e
 
     if (name && dosage) {
         const list = document.getElementById('medicine-list');
+        // UI te new item add korar jonno HTML banai
         const itemHTML = `
             <div class="med-item">
                 <div>
@@ -85,6 +87,7 @@ document.getElementById("btn-add-medicine").addEventListener("click", function(e
         `;
         list.insertAdjacentHTML('beforeend', itemHTML);
         
+        // input clean kori jate porer item add kora easy hoy
         nameInput.value = '';
         dosageInput.value = '';
     } else {
@@ -107,6 +110,7 @@ document.getElementById("btn-submit-prescription").addEventListener("click", fun
     e.preventDefault();
     
     if(!document.getElementById('diag-input').value) {
+        // Diagnosis na thakle submit allow na
         alert('Diagnosis is required!');
         return;
     }
@@ -131,6 +135,7 @@ document.getElementById("btn-submit-prescription").addEventListener("click", fun
         document.getElementById('count-completed').textContent = completedCount + 1;
     }
 
+    // submit seshe modal close kori
     closeModal();
 });
 

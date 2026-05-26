@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Virtual Hospital</title>
+    <link rel="stylesheet" href="patientprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i> Virtual Hospital
+        </div>
+        <div class="header-actions">
+            <button type="button" class="btn-icon">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+            <button type="button" class="btn-text">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        
+        <aside class="profile-sidebar">
+            <div class="sidebar-user-info">
+                <div class="avatar-container">
+                    <div class="avatar avatar-xl">J</div>
+                    <button type="button" class="btn-camera" title="Change Photo">
+                        <i class="fa-solid fa-camera"></i>
+                    </button>
+                </div>
+                <h2>John Smith</h2>
+                <p class="text-muted">Patient</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active">
+                    <i class="fa-regular fa-user"></i> Profile
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-calendar"></i> Appointments
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-file-prescription"></i> Prescriptions
+                </a>
+                <a href="#" class="menu-item">
+                    <span>Notifications</span>
+                    <span class="badge badge-red">1</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            
+            <section id="profile-section" class="card profile-details-card">
+                
+                <div class="card-header-flex">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-blue edit-btn" id="profile-edit-btn">
+                            <i class="fa-solid fa-pen"></i> Edit Profile
+                        </button>
+                        
+                        <div class="save-cancel-btns hidden">
+                            <button type="button" class="btn btn-green" id="profile-save-btn">
+                                <i class="fa-regular fa-floppy-disk"></i> Save
+                            </button>
+                            <button type="button" class="btn btn-gray" id="profile-cancel-btn">
+                                <i class="fa-solid fa-xmark"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="profile-form">
+                    <div class="form-grid">
+                        
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" value="John Smith" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="john.smith@example.com" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" value="+1 234 567 8900" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dob">Date Of Birth</label>
+                            <input type="date" id="dob" value="1990-05-15" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <input type="text" id="gender" value="Male" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="blood-group">Blood Group</label>
+                            <input type="text" id="blood-group" value="O+" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" value="123 Main Street, New York, NY 10001" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergency-contact">Emergency Contact</label>
+                            <input type="text" id="emergency-contact" value="+1 234 567 8901" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emergency-name">Emergency Contact Name</label>
+                            <input type="text" id="emergency-name" value="Jane Smith" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="allergies">Allergies</label>
+                            <input type="text" id="allergies" value="Penicillin" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="chronic">Chronic Conditions</label>
+                            <input type="text" id="chronic" value="None" disabled>
+                        </div>
+                        
+                    </div>
+                </form>
+
+            </section>
+        </main>
+        
+    </div>
+
+    <script src="patient profile.js"></script>
+</body>
+</html>

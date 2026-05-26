@@ -9,11 +9,13 @@ document.getElementById("profile-edit-btn").addEventListener("click", function(e
 
 document.getElementById("profile-save-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // save mode e ber hoye fields lock kori
     toggleEdit('profile-section', false);
 });
 
 document.getElementById("profile-cancel-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // cancel dile ager value back niye asi
     cancelProfile();
 });
 
@@ -26,11 +28,13 @@ document.getElementById("edu-edit-btn").addEventListener("click", function(e) {
 
 document.getElementById("edu-done-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // done dile edit mode off kori
     toggleEdit('education-section', false);
 });
 
 document.getElementById("edu-add-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // new education item add kori
     addEducation();
 });
 
@@ -38,6 +42,7 @@ document.getElementById("edu-add-btn").addEventListener("click", function(e) {
 document.getElementById("education-list").addEventListener("click", function(e) {
     const deleteBtn = e.target.closest('.delete-btn');
     if (deleteBtn) {
+        // list theke item remove
         deleteBtn.parentElement.remove();
     }
 });
@@ -50,11 +55,13 @@ document.getElementById("exp-edit-btn").addEventListener("click", function(e) {
 
 document.getElementById("exp-done-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // done dile edit mode off kori
     toggleEdit('experience-section', false);
 });
 
 document.getElementById("exp-add-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // new experience item add kori
     addExperience();
 });
 
@@ -62,6 +69,7 @@ document.getElementById("exp-add-btn").addEventListener("click", function(e) {
 document.getElementById("experience-list").addEventListener("click", function(e) {
     const deleteBtn = e.target.closest('.delete-btn');
     if (deleteBtn) {
+        // list theke item remove
         deleteBtn.parentElement.remove();
     }
 });
@@ -77,17 +85,20 @@ document.getElementById("skills-edit-btn").addEventListener("click", function(e)
 
 document.getElementById("skills-done-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // done dile edit mode off kori
     toggleEdit('skills-section', false);
 });
 
 document.getElementById("skills-add-btn").addEventListener("click", function(e) {
     e.preventDefault();
+    // new skill tag add kori
     addSkill();
 });
 
 // Event Delegation for Delete Icons in Tags
 document.getElementById("skills-list").addEventListener("click", function(e) {
     if (e.target.classList.contains('tag-delete')) {
+        // tag remove
         e.target.parentElement.remove();
     }
 });
@@ -115,12 +126,14 @@ function toggleEdit(sectionId, isEditing) {
         const inputs = section.querySelectorAll('input, textarea');
         if(isEditing) {
             inputs.forEach(input => {
+                // edit mode e jaoar age value backup
                 profileBackup[input.id] = input.value; 
                 input.removeAttribute('disabled');
                 input.style.padding = "12px"; 
             });
         } else {
             inputs.forEach(input => {
+                // edit off e inputs lock
                 input.setAttribute('disabled', 'true');
                 input.style.padding = "12px 0"; 
             });
@@ -177,6 +190,7 @@ function addEducation() {
         const newItem = document.createElement('div');
         newItem.className = 'list-item';
         
+        // year optional thakle text add
         let yearText = year ? ` • ${year}` : '';
         
         newItem.innerHTML = `
@@ -190,6 +204,7 @@ function addEducation() {
         `;
         list.appendChild(newItem);
 
+        // inputs clear
         degreeInput.value = '';
         instInput.value = '';
         yearInput.value = '';
@@ -213,6 +228,7 @@ function addExperience() {
         const newItem = document.createElement('div');
         newItem.className = 'list-item';
         
+        // duration optional thakle text add
         let durText = dur ? ` • ${dur}` : '';
 
         newItem.innerHTML = `
@@ -226,6 +242,7 @@ function addExperience() {
         `;
         list.appendChild(newItem);
 
+        // inputs clear
         posInput.value = '';
         hospInput.value = '';
         durInput.value = '';
@@ -250,6 +267,7 @@ function addSkill() {
         `;
         list.appendChild(newTag);
         
+        // input clear
         skillInput.value = '';
     }
 }

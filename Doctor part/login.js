@@ -53,8 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // role onujayi next action
         if (currentRole === "doctor") {
+            // doctor login hole dashboard e redirect
             window.location.href = "home.html";
         } else if (currentRole === "patient") {
+            // patient part ekhono ready na
             alert(" Under Construction :)");
         }
     });
