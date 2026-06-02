@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile Dashboard</title>
+    <link rel="stylesheet" href="drprofile.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-regular fa-heart"></i> Virtual Hospital
+        </div>
+        <div class="nav-links">
+            <a href="Dr_Dashbord.html" class="active">Dashboard</a>
+            <a href="#" class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- 1. PROFILE SECTION -->
+        <section id="profile-section" class="card">
+            <div class="card-header">
+                <div class="profile-header-info">
+                    <div class="avatar">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="camera-icon"><i class="fa-solid fa-camera"></i></div>
+                    </div>
+                    <div class="title-info">
+                        <h2>Doctor Name</h2>
+                        <p class="role">Specialization</p>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary edit-btn" id="profile-edit-btn">
+                        <i class="fa-solid fa-pen"></i> Edit Profile
+                    </button>
+                    <div class="save-cancel-btns hidden">
+                        <button type="button" class="btn btn-primary" id="profile-save-btn"><i class="fa-solid fa-save"></i> Save</button>
+                        <button type="button" class="btn btn-secondary" id="profile-cancel-btn"><i class="fa-solid fa-times"></i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-form">
+                <form id="profileDataForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" placeholder="Mr. John" required disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-email">Email</label>
+                            <input type="email" id="prof-email" name="email" placeholder="e.g. doctor@hospital.com" required disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-phone">Phone</label>
+                            <input type="tel" id="prof-phone" name="phone" placeholder="e.g. +1 234 567 8900" disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-license">License Number</label>
+                            <input type="text" id="prof-license" name="license" placeholder="e.g. MD-12345-NY" disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-spec">Specialization</label>
+                            <select id="specialization" disabled>
+                                <option>Cardiology</option>
+                                <option>Neurology</option>
+                                <option>Dermatology</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" disabled>
+                                <option>MALE</option>
+                                <option>FEMALE</option>
+                                <option>OTHER</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-fee">Consultation Fee</label>
+                            <input type="number" id="prof-fee" name="fee" placeholder="e.g. $150" disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="prof-exp">Experience</label>
+                            <input type="text" id="prof-exp" name="experience" placeholder="e.g. 15 years" disabled>
+                        </div>
+                        <div class="input-group">
+                            <label for="qualification">Qualifications</label>
+                            <input type="text" id="qualification" name="qualification" placeholder="e.g. MBBS, MD(Cardiology)" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group full-width">
+                        <label for="prof-about">About</label>
+                        <textarea id="prof-about" name="about" rows="3" placeholder="Write a short biography or summary..." disabled></textarea>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 2. EDUCATION SECTION -->
+        <section id="education-section" class="card">
+            <div class="card-header border-bottom">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Education & Qualifications</h3>
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary edit-btn" id="edu-edit-btn">
+                        <i class="fa-solid fa-pen"></i> Edit
+                    </button>
+                    <div class="save-cancel-btns hidden">
+                        <button type="button" class="btn btn-primary" id="edu-done-btn"><i class="fa-solid fa-check"></i> Done</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-container" id="education-list">
+                <h4>No Education Found.</h4>
+            </div>
+
+            <div class="add-form hidden">
+                <h4>Add Education</h4>
+                <div class="form-grid add-grid">
+                    <input type="text" id="new-edu-degree" placeholder="Degree (e.g., MBBS)" required>
+                    <input type="text" id="new-edu-inst" placeholder="Institution" required>
+                    <input type="number" id="new-edu-year" placeholder="Year" required>
+                    <button type="button" class="btn btn-add" id="edu-add-btn"><i class="fa-solid fa-plus"></i> Add</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EXPERIENCE SECTION -->
+        <section id="experience-section" class="card">
+            <div class="card-header border-bottom">
+                <h3><i class="fa-solid fa-briefcase"></i> Professional Experience</h3>
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary edit-btn" id="exp-edit-btn">
+                        <i class="fa-solid fa-pen"></i> Edit
+                    </button>
+                    <div class="save-cancel-btns hidden">
+                        <button type="button" class="btn btn-primary" id="exp-done-btn"><i class="fa-solid fa-check"></i> Done</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="list-container" id="experience-list">
+                <h4>No Experience Found!</h4>
+            </div>
+
+            <div class="add-form hidden">
+                <h4>Add Experience</h4>
+                <div class="form-grid add-grid">
+                    <input type="text" id="new-exp-pos" placeholder="Position">
+                    <input type="text" id="new-exp-hosp" placeholder="Hospital/Clinic">
+                    <input type="number" id="exp-start-year" placeholder="Start year" required>
+                    <input type="number" id="exp-end-year" placeholder="End year" required>
+                    <button type="button" class="btn btn-add" id="exp-add-btn"><i class="fa-solid fa-plus"></i> Add</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="overlay" class="hidden">
+            <div id="issue" class="hidden">
+                <div class="popup-msg">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p></p>
+                </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
+            </div>
+            <div id="error-alert" class="hidden">
+                <div class="popup-msg">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p></p>
+                </div>
+                <button id="try-btn" class="popup-btn">Try again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="drprofile.js"></script>
+</body>
+</html>

@@ -73,10 +73,12 @@ async function login(username, password){
     
     if(userData.role === "PATIENT"){
         localStorage.setItem("userId", userData.id);
-        window.location.href = "";
+        localStorage.setItem("username", userData.username);
+        window.location.href = "patient_dashboard.html";
         console.log("Patient login success");
     }else if(userData.role === "DOCTOR"){
         localStorage.setItem("userId", userData.id);
+        localStorage.setItem("username", userData.username);
         window.location.href = "";
         console.log("Doctor login success");
     }
