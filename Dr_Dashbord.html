@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Hospital Dashboard</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Dr_Dashbord.css">
+</head>
+<body>
+
+    <!-- Top Header (Full Width) -->
+    <header class="top-header">
+        <div class="top-brand">
+            <i class="fa-regular fa-heart text-green"></i>
+            <h2>Virtual Hospital</h2>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-top">
+                <div class="user-logo">
+                    <p>D</p>
+                </div>
+                <div class="user-info">
+                    <h2>Patient Full Name</h2>
+                    <p>Patient username</p>
+                </div>
+            </nav>
+            <nav class="sidebar-nav">
+                <a href="drprofile.html" class="nav-item active"><i class="fa-regular fa-user"></i> My Profile</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Manage Schedule</a>
+                <a href="appoin.html" class="nav-item"><i class="fa-regular fa-calendar"></i> Appointments</a>
+            </nav>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+                <a href="appoin.html" class="nav-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-content">
+                <!-- Welcome Card -->
+                <section class="welcome-card card">
+                    <h1>Welcome, Dr. Sarah Johnson</h1>
+                    <p class="role-text">Cardiologist</p>
+                </section>
+
+                <!-- Stats Grid -->
+                <section class="stats-grid">
+                    <div class="stat-card stat-blue">
+                        <p>Today's Appointments</p>
+                        <h2>12</h2>
+                    </div>
+                    <div class="stat-card stat-green">
+                        <p>Total Appointments This Week</p>
+                        <h2>42</h2>
+                    </div>
+                    <div class="stat-card stat-purple">
+                        <p>Total Consulted Patients</p>
+                        <h2>156</h2>
+                    </div>
+                </section>
+
+                <!-- Consultation Location and Timeslot -->
+                <section class="consultation-locations-timeslots">
+                    <div class="section-title-group">
+                        <h2 class="section-title">Consultation Locations & Timeslots</h2>
+                        <a href="appoin.html">View all <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                    <div class="location-timeslot-list">
+                        <p class="text-muted" style="padding: 65px 20px;">No Consultation Location Found. Add Consultation Location From <a href="#">Here</a>.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="Dr_Dashbord.js"></script>
+</body>
+</html>
