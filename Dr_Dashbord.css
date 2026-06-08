@@ -352,6 +352,9 @@ input[type="text"]:focus, textarea:focus {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
+    max-height: 245px; 
+    overflow-y: auto;  
+    padding-right: 10px;
 }
 .location-timeslot-card{
     display: flex;

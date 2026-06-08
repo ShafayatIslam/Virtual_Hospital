@@ -3,7 +3,8 @@ const details_url = "http://localhost:8080/user/doctor/details";
 const edu_url = "http://localhost:8080/doctor/educations";
 const exp_url = "http://localhost:8080/doctor/experiences";
 
-const doctorId = 27;
+const doctorId = localStorage.getItem("userId");
+const username = localStorage.getItem("username");
 
 // Profile data backup for Cancel action 
 let profileBackup = {};

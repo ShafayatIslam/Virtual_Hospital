@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile - Virtual Hospital</title>
+    <link rel="stylesheet" href="available-dr-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-regular fa-heart icon-blue"></i> Virtual Hospital
+        </div>
+    </header>
+
+    <main class="main-container">
+        <a href="#" class="back-link" id="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back
+        </a>
+
+        <section class="profile-card">
+            
+            <div class="profile-header-top">
+                <div class="avatar avatar-large">S</div>
+                <div class="profile-title-area">
+                    <h1>Dr. Sarah Johnson</h1>
+                    <p class="specialty-text">Cardiologist</p>
+                    
+                    <div class="inline-info-strip">
+                        <span><i class="fa-solid fa-medal"></i> MBBS, MD (Cardiology), FACC</span>
+                        <span><i class="fa-solid fa-briefcase"></i> 15 years experience</span>
+                        <span><i class="fa-solid fa-dollar-sign"></i> Consultation: $150</span>
+                    </div>
+                    
+                    <div class="rating-box">
+                        <i class="fa-solid fa-star text-yellow"></i>
+                        <strong>4.8</strong> <span class="text-muted">(156 reviews)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h3>About</h3>
+                <p class="text-muted">Experienced cardiologist with over 15 years of practice. Specialized in interventional cardiology and heart disease prevention.</p>
+            </div>
+
+            <div class="profile-section">
+                <h3><i class="fa-solid fa-graduation-cap"></i> Education & Qualifications</h3>
+                <ul class="education-list">
+                    <li><i class="fa-regular fa-circle-check text-green"></i> MBBS - Harvard Medical School (2005)</li>
+                    <li><i class="fa-regular fa-circle-check text-green"></i> MD (Cardiology) - Johns Hopkins University (2008)</li>
+                    <li><i class="fa-regular fa-circle-check text-green"></i> FACC - American College of Cardiology (2010)</li>
+                </ul>
+            </div>
+
+            <div class="profile-section border-none">
+                <h3><i class="fa-solid fa-award"></i> Skills & Specializations</h3>
+                <div class="skills-container">
+                    <span class="skill-badge">Interventional Cardiology</span>
+                    <span class="skill-badge">Echocardiography</span>
+                    <span class="skill-badge">Cardiac Catheterization</span>
+                    <span class="skill-badge">Stress Testing</span>
+                    <span class="skill-badge">Heart Failure Management</span>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="section-title-wrapper">
+            <h2>Consultation Locations & Available Slots</h2>
+        </div>
+
+        <section class="locations-wrapper" id="locations-container">
+            
+            <div class="location-card">
+                <div class="location-header">
+                    <i class="fa-solid fa-location-dot icon-blue"></i>
+                    <div>
+                        <h3>City General Hospital</h3>
+                        <p class="text-muted">Floor 3, Room 305</p>
+                    </div>
+                </div>
+
+                <div class="slots-header">
+                    <i class="fa-regular fa-clock"></i> Available Time Slots
+                </div>
+
+                <div class="slots-grid">
+                    <div class="slot-item">
+                        <div class="slot-time">9:00 AM - 10:00 AM</div>
+                        <div class="capacity-info">
+                            <span class="text-muted">Capacity</span>
+                            <span class="capacity-count">5/10</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-blue" style="width: 50%;"></div>
+                        </div>
+                        <button type="button" class="btn btn-blue btn-book" data-slot="9:00 AM">Book (5 left)</button>
+                    </div>
+
+                    <div class="slot-item">
+                        <div class="slot-time">10:00 AM - 11:00 AM</div>
+                        <div class="capacity-info">
+                            <span class="text-muted">Capacity</span>
+                            <span class="capacity-count">8/10</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-blue" style="width: 80%;"></div>
+                        </div>
+                        <button type="button" class="btn btn-blue btn-book" data-slot="10:00 AM">Book (2 left)</button>
+                    </div>
+
+                    <div class="slot-item">
+                        <div class="slot-time">2:00 PM - 3:00 PM</div>
+                        <div class="capacity-info">
+                            <span class="text-muted">Capacity</span>
+                            <span class="capacity-count text-red">10/10</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-red" style="width: 100%;"></div>
+                        </div>
+                        <button type="button" class="btn btn-disabled" disabled>Full</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-header">
+                    <i class="fa-solid fa-location-dot icon-blue"></i>
+                    <div>
+                        <h3>HealthCare Medical Center</h3>
+                        <p class="text-muted">Floor 2, Room 201</p>
+                    </div>
+                </div>
+
+                <div class="slots-header">
+                    <i class="fa-regular fa-clock"></i> Available Time Slots
+                </div>
+
+                <div class="slots-grid">
+                    <div class="slot-item">
+                        <div class="slot-time">11:00 AM - 12:00 PM</div>
+                        <div class="capacity-info">
+                            <span class="text-muted">Capacity</span>
+                            <span class="capacity-count">3/8</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-blue" style="width: 37%;"></div>
+                        </div>
+                        <button type="button" class="btn btn-blue btn-book" data-slot="11:00 AM">Book (5 left)</button>
+                    </div>
+
+                    <div class="slot-item">
+                        <div class="slot-time">3:00 PM - 4:00 PM</div>
+                        <div class="capacity-info">
+                            <span class="text-muted">Capacity</span>
+                            <span class="capacity-count">6/8</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-blue" style="width: 75%;"></div>
+                        </div>
+                        <button type="button" class="btn btn-blue btn-book" data-slot="3:00 PM">Book (2 left)</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

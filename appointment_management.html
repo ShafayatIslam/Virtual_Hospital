@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management Dashboard</title>
+    <link rel="stylesheet" href="appointment_management.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-regular fa-heart text-green"></i> Virtual Hospital
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Back Link -->
+        <a href="Dr_Dashbord.html" class="back-link" id="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+
+        <!-- Hero Section -->
+        <section class="hero-card card">
+            <h1>Appointment Management</h1>
+            <p class="text-muted">Manage your appointments and provide prescriptions</p>
+        </section>
+
+        <!-- Filters Section -->
+        <!-- <section class="filter-card card">
+            <i class="fa-solid fa-filter text-muted"></i>
+            <div class="filter-buttons">
+                <button type="button" class="filter-btn active">Today</button>
+                <button type="button" class="filter-btn">Upcoming</button>
+                <button type="button" class="filter-btn">Completed</button>
+            </div>
+        </section> -->
+
+        <!-- Appointments Management Accordion Area -->
+        <section class="management-section">
+            <div class="section-header">
+                <h2>Manage Today's Appointments</h2>
+            </div>
+
+            <div id="appointment-container">
+                
+                <!-- Hospital 1 (Level 1) -->
+                <div class="hospital-card">
+                    <div class="hospital-header">
+                        <div class="header-info">
+                            <i class="fa-solid fa-location-dot icon-green"></i>
+                            <div>
+                                <h3>City General Hospital</h3>
+                                <p class="text-muted">6 patients today</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </div>
+                    
+                    <div class="hospital-body">
+                        
+                        <!-- Time Slot 1 (Level 2) -->
+                        <div class="timeslot-card">
+                            <div class="timeslot-header">
+                                <div class="header-info">
+                                    <i class="fa-regular fa-clock icon-blue"></i>
+                                    <div>
+                                        <h4>9:00 AM - 10:00 AM</h4>
+                                        <p class="text-muted">3 patients booked</p>
+                                    </div>
+                                </div>
+                                <div class="header-actions">
+                                    <span class="consulted-badge">0/3 consulted</span>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="timeslot-body">
+                                
+                                <!-- Patient 1 (Level 3) -->
+                                <div class="patient-card">
+                                    <div class="patient-info">
+                                        <div class="avatar bg-green">J</div>
+                                        <div class="patient-details">
+                                            <div class="name-row">
+                                                <h4>John Smith</h4>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-yellow status-badge">Waiting</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted">45 years • ID: APT001</p>
+                                        </div>
+                                    </div>
+                                    <div class="patient-actions">
+                                        <button type="button" class="btn btn-blue btn-history hidden">
+                                            <i class="fa-solid fa-book-medical"></i> Medical History
+                                        </button>
+                                        <button type="button" class="btn btn-blue btn-call">
+                                            <i class="fa-solid fa-bullhorn"></i> Call
+                                        </button>
+                                        <button type="button" class="btn btn-disabled btn-prescribe" disabled>
+                                            <i class="fa-regular fa-file-lines"></i> Provide Prescription
+                                        </button>
+                                        <button type="button" class="btn btn-gray btn-cancel hidden">
+                                            <i class="fa-solid fa-xmark"></i> Cancel
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Patient 2 (Level 3) -->
+                                <div class="patient-card">
+                                    <div class="patient-info">
+                                        <div class="avatar bg-green">S</div>
+                                        <div class="patient-details">
+                                            <div class="name-row">
+                                                <h4>Sarah Williams</h4>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-yellow status-badge">Waiting</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted">52 years • ID: APT002</p>
+                                        </div>
+                                    </div>
+                                    <div class="patient-actions">
+                                        <button type="button" class="btn btn-blue btn-history hidden">
+                                            <i class="fa-solid fa-book-medical"></i> Medical History
+                                        </button>
+                                        <button type="button" class="btn btn-blue btn-call">
+                                            <i class="fa-solid fa-bullhorn"></i> Call
+                                        </button>
+                                        <button type="button" class="btn btn-disabled btn-prescribe" disabled>
+                                            <i class="fa-regular fa-file-lines"></i> Provide Prescription
+                                        </button>
+                                        <button type="button" class="btn btn-gray btn-cancel hidden">
+                                            <i class="fa-solid fa-xmark"></i> Cancel
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Patient 3 (Level 3) -->
+                                <div class="patient-card">
+                                    <div class="patient-info">
+                                        <div class="avatar bg-green">D</div>
+                                        <div class="patient-details">
+                                            <div class="name-row">
+                                                <h4>David Miller</h4>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-yellow status-badge">Waiting</span>
+                                                </div>
+                                            </div>
+                                            <p class="text-muted">38 years • ID: APT003</p>
+                                        </div>
+                                    </div>
+                                    <div class="patient-actions">
+                                        <button type="button" class="btn btn-blue btn-call">
+                                            <i class="fa-solid fa-bullhorn"></i> Call
+                                        </button>
+                                        <button type="button" class="btn btn-disabled btn-prescribe" disabled>
+                                            <i class="fa-regular fa-file-lines"></i> Provide Prescription
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Time Slot 2 (Level 2) -->
+                        <div class="timeslot-card">
+                            <div class="timeslot-header">
+                                <div class="header-info">
+                                    <i class="fa-regular fa-clock icon-blue"></i>
+                                    <div>
+                                        <h4>10:00 AM - 11:00 AM</h4>
+                                        <p class="text-muted">2 patients booked</p>
+                                    </div>
+                                </div>
+                                <div class="header-actions">
+                                    <span class="consulted-badge">0/2 consulted</span>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="timeslot-body">
+                                <!-- eikhane database theke baki patient gular information anbi -->
+                                <p class="text-muted" style="padding: 20px;">Data base theke api call er maddome ante hoibo</p>
+                            </div>
+                        </div>
+
+                        <!-- Time Slot 3 (Level 2) -->
+                        <div class="timeslot-card">
+                            <div class="timeslot-header">
+                                <div class="header-info">
+                                    <i class="fa-regular fa-clock icon-blue"></i>
+                                    <div>
+                                        <h4>2:00 PM - 3:00 PM</h4>
+                                        <p class="text-muted">1 patient booked</p>
+                                    </div>
+                                </div>
+                                <div class="header-actions">
+                                    <span class="consulted-badge">0/1 consulted</span>
+                                    <i class="fa-solid fa-chevron-down chevron"></i>
+                                </div>
+                            </div>
+                            <!-- database theke baki patient gular information anbi -->
+                            <div class="timeslot-body">
+                                <p class="text-muted" style="padding: 20px;">data base theke api call er maddome ante hoibo</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Hospital 2 (Level 1) -->
+                <div class="hospital-card">
+                    <div class="hospital-header">
+                        <div class="header-info">
+                            <i class="fa-solid fa-location-dot icon-green"></i>
+                            <div>
+                                <h3>HealthCare Medical Center</h3>
+                                <p class="text-muted">2 patients today</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </div>
+                    <div class="hospital-body">
+                        <p class="text-muted" style="padding: 20px;">[Schedules will appear here]</p>
+                    </div>
+                </div>
+                <!-- eikhane caile aro hospital add korte parbi  -->
+                 
+            </div>
+        </section>
+
+        <!-- Prescription Modal -->
+        <div class="modal-overlay" id="prescription-modal">
+            <div class="modal-content card">
+                <div class="modal-header">
+                    <div>
+                        <h2>Provide Prescription</h2>
+                        <p class="text-muted" id="modal-patient-name">Patient: Name</p>
+                    </div>
+                    <button type="button" class="btn-close" id="modal-close-icon"><i class="fa-solid fa-times"></i></button>
+                </div>
+            
+                <div class="modal-body">
+                    <form id="prescription-form">
+                        <div class="form-group">
+                            <label for="diag-input">Diagnosis <span class="text-red">*</span></label>
+                            <input type="text" id="diag-input" name="diagnosis" placeholder="e.g., Mild Hypertension">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Medicines <span class="text-red">*</span></label>
+
+                            <!-- Dynamic Medicine List -->
+                            <div class="medicine-list" id="medicine-list">
+                                <!-- JS will add HTML here temporarily -->
+                            </div>
+                            <br>
+                            <div class="medicine-inputs">
+                                <input type="text" id="med-name" placeholder="Medicine name (e.g., Amlodipine 5mg)">
+                                <input type="text" id="med-dosage" placeholder="Dosage & instructions (e.g., Once daily after meals)">
+                                <button type="button" class="btn-text text-green" id="btn-add-medicine">
+                                    <i class="fa-solid fa-plus"></i> Add Medicine
+                                </button>
+                            </div>
+                        
+                       
+                        </div>
+
+                        <div class="form-group">
+                            <label for="med-notes">Additional Notes</label>
+                            <textarea id="med-notes" name="notes" rows="3" placeholder="Any additional instructions or follow-up recommendations..."></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-green full-width" id="btn-submit-prescription">Submit Prescription</button>
+                            <button type="button" class="btn btn-gray full-width" id="btn-cancel-prescription">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOADING OVERLAY -->
+        <div id="loading-overlay" class="hidden">
+            <div class="loading-box">
+                <div class="circle-loader"></div>
+            </div>
+        </div>
+
+        <!-- POPUP -->
+        <div id="overlay" class="hidden">
+            <div id="warning" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: rgb(205, 63, 63);"></i>
+                    <p></p>
+                </div>
+                <div class="popup-btn-grp">
+                    <button id="yes">Yes</button>
+                    <button id="no">No</button>
+                </div>
+            </div>
+            <div id="positive-response" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+                    <p></p>
+                </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
+            </div>
+            <div id="error-alert" class="hidden">
+                <div class="popup-msg">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p></p>
+                </div>
+                <button id="try-btn" class="popup-btn">Try again</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="appointment_management.js"></script>
+</body>
+</html>

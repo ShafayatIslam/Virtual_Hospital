@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Hospital</title>
+    <link rel="stylesheet" href="HOME.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+    <i class="fa-solid fa-heart-pulse"></i> Virtual Hospital
+</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Find the Right Doctor<br>Based on Your Symptoms</h1>
+        <p>
+            Connect with the right medical specialists for your health needs.
+            Describe your symptoms and get matched with qualified doctors who can help.
+        </p>
+
+        <div class="buttons">
+            <button class="primary">Get Started</button>
+            <button class="outline">Find Doctor</button>
+        </div>
+    </div>
+
+    <div class="hero-img">
+        <div class="circle">
+    <i class="fa-solid fa-heart-pulse"></i>
+</div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <h1>Our Features</h1>
+
+    <div class="feature-box">
+
+        <div class="card" onclick="handleFeature('doctor')">
+            <div class="icon blue">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3>Doctor Recommendation System</h3>
+            <p>Get intelligent recommendations for specialists based on your symptoms</p>
+        </div>
+
+        <div class="card green" onclick="handleFeature('appointment')">
+            <div class="icon green">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <h3>Easy Appointment Booking</h3>
+            <p>Book appointments with available doctors at your convenience</p>
+        </div>
+
+        <div class="card" onclick="handleFeature('profile')">
+            <div class="icon blue">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <h3>Digital Patient Profiles</h3>
+            <p>Manage your health information and appointment history digitally</p>
+        </div>
+
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <i class="fa-solid fa-heart-pulse"></i> Virtual Hospital
+        </div>
+
+        <!-- Middle Section -->
+        <div class="footer-center">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        
+        <!-- Invisible spacer to ensure the center stays perfectly centered -->
+        <div class="footer-spacer"></div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <p class="copy">© 2026 Virtual Hospital. All rights reserved.</p>
+</footer>
+</body>
+</html>

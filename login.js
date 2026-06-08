@@ -1,5 +1,7 @@
 let url = "http://localhost:8080/user/login";
 
+const loadingOverlay = document.getElementById("loading-overlay");
+
 document.addEventListener("DOMContentLoaded", function() {
     
     const loginForm = document.getElementById("login-form");
@@ -42,6 +44,7 @@ async function login(username, password){
         password: password
     }
 
+    showLoading();
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -53,24 +56,14 @@ async function login(username, password){
     if(!response.ok){
         const error = await response.json();
         
-        let overlay = document.querySelector("#overlay");
-        let popup = document.querySelector("#invalid-input-alert");
-        overlay.classList.replace("hidden", "popup");
-        popup.classList.replace("hidden", "invalid-input-alert");
-
-        let error_msg = document.querySelector(".error-msg p");
-        error_msg.textContent = error.message;
-
-        let try_btn = document.querySelector("#try-btn");
-        try_btn.addEventListener("click", () => {
-            overlay.classList.replace("popup", "hidden");
-            popup.classList.replace("invalid-input-alert", "hidden");
-        })
+        showPopup("error-alert", error.message);
+        hideLoading();
         return;
     }
 
     const userData = await response.json();
-    
+    hideLoading();
+
     if(userData.role === "PATIENT"){
         localStorage.setItem("userId", userData.id);
         localStorage.setItem("username", userData.username);
@@ -79,7 +72,29 @@ async function login(username, password){
     }else if(userData.role === "DOCTOR"){
         localStorage.setItem("userId", userData.id);
         localStorage.setItem("username", userData.username);
-        window.location.href = "";
+        window.location.href = "Dr_Dashbord.html";
         console.log("Doctor login success");
     }
+}
+
+function showPopup(popupId, popupMsg){
+    let overlay = document.getElementById("overlay");
+    let popup = document.getElementById(popupId);
+    overlay.classList.replace("hidden", "overlay");
+    popup.classList.replace("hidden", "popup");
+    let message = popup.querySelector("p");
+    message.textContent = popupMsg;
+    let button = popup.querySelector("button");
+            
+    button.addEventListener("click", () => {
+        overlay.classList.replace("overlay", "hidden");
+        popup.classList.replace("popup", "hidden");
+    });
+}
+
+function showLoading() {
+    loadingOverlay.classList.replace("hidden","overlay");
+}
+function hideLoading() {
+    loadingOverlay.classList.replace("overlay","hidden");
 }

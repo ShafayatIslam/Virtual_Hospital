@@ -14,7 +14,7 @@
     <!-- Top Navbar -->
     <nav class="navbar">
         <div class="logo">
-            <i class="fa-regular fa-heart icon-color"></i> Virtual Hospital
+            <i class="fa-regular fa-heart icon-color"></i> <a href="HOME.html">Virtual Hospital</a>
         </div>
         <a href="register.html" class="nav-link">Don't have an account? Register</a>
     </nav>
@@ -46,24 +46,42 @@
             </div>
 
         </div>
-    </main>
 
-    <div id="overlay" class="hidden">
-        <div id="empty-input-alert" class="hidden">
-            <div class="alert-msg">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <p>Please enter both username and password to login.</p>
+        <!-- LOADING OVERLAY -->
+        <div id="loading-overlay" class="hidden">
+            <div class="loading-box">
+                <div class="circle-loader"></div>
             </div>
-            <button id="ok-btn" class="popup-btn">Ok</button>
         </div>
-        <div id="invalid-input-alert" class="hidden">
-            <div class="error-msg">
+
+        <!-- POPUP -->
+        <div id="overlay" class="hidden">
+            <div id="warning" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: rgb(205, 63, 63);"></i>
+                    <p></p>
+                </div>
+                <div class="popup-btn-grp">
+                    <button id="yes">Yes</button>
+                    <button id="no">No</button>
+                </div>
+            </div>
+            <div id="positive-response" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+                    <p></p>
+                </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
+            </div>
+            <div id="error-alert" class="hidden">
+                <div class="popup-msg">
                 <i class="fa-solid fa-circle-xmark"></i>
                 <p></p>
+                </div>
+                <button id="try-btn" class="popup-btn">Try again</button>
             </div>
-            <button id="try-btn" class="popup-btn">Try again</button>
         </div>
-    </div>
+    </main>
 
     <script src="login.js"></script>
 </body>

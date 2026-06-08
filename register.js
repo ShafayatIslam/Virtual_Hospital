@@ -11,6 +11,7 @@ const doctorSection = document.getElementById('doctor-form');
 const patientForm = patientSection.querySelector("form");
 const doctorForm = doctorSection.querySelector("form");
 
+const loadingOverlay = document.getElementById("loading-overlay");
 
 patientCard.addEventListener("click", () => {
     patientSection.classList.remove("hidden");
@@ -43,16 +44,7 @@ patientForm.addEventListener("submit", async (e) => {
     const confirmPassword = inputs[12].value.trim();
     console.log(password+" "+confirmPassword);
     if(password !== confirmPassword){
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('password-confirmation');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
+        showPopup("error-alert", "Passwords do not match!");
         return;
     }
 
@@ -71,6 +63,7 @@ patientForm.addEventListener("submit", async (e) => {
         password: password
     }
 
+    showLoading();
     const response = await fetch(patient_api, {
         method: "POST",
         headers: {
@@ -80,23 +73,13 @@ patientForm.addEventListener("submit", async (e) => {
     });
 
     if(!response.ok){
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('error-alert');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
         const error = await response.json();
-        popup.querySelector("p").textContent = error.message;
-
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
-
+        showPopup("error-alert", error.message);
+        hideLoading();
         return;
     }
-
+    hideLoading();
+    
     window.location.href = "login.html";
 });
 
@@ -109,16 +92,7 @@ doctorForm.addEventListener("submit", async (e) => {
     const confirmPassword = inputs[11].value.trim();
     console.log(password+" "+confirmPassword);
     if(password !== confirmPassword){
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('password-confirmation');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
+        showPopup("error-alert", "Passwords do not match!");
         return;
     }
 
@@ -135,6 +109,7 @@ doctorForm.addEventListener("submit", async (e) => {
         password: password
     }
 
+    showLoading();
     const response = await fetch(doctor_api, {
         method: "POST",
         headers: {
@@ -144,22 +119,34 @@ doctorForm.addEventListener("submit", async (e) => {
     });
 
     if(!response.ok){
-        let overlay = document.getElementById('overlay');
-        let popup = document.getElementById('error-alert');
-        overlay.classList.replace("hidden", "overlay");
-        popup.classList.replace("hidden", "popup");
-
         const error = await response.json();
-        popup.querySelector("p").textContent = error.message;
-        
-        let button = popup.querySelector("button");
-        button.addEventListener("click", () => {
-            overlay.classList.replace("overlay", "hidden");
-            popup.classList.replace("popup", "hidden");
-        });
-
+        showPopup("error-alert", error.message);
+        hideLoading();
         return;
     }
-
+    hideLoading();
+    
     window.location.href = "login.html";
 })
+
+function showPopup(popupId, popupMsg){
+    let overlay = document.getElementById("overlay");
+    let popup = document.getElementById(popupId);
+    overlay.classList.replace("hidden", "overlay");
+    popup.classList.replace("hidden", "popup");
+    let message = popup.querySelector("p");
+    message.textContent = popupMsg;
+    let button = popup.querySelector("button");
+            
+    button.addEventListener("click", () => {
+        overlay.classList.replace("overlay", "hidden");
+        popup.classList.replace("popup", "hidden");
+    });
+}
+
+function showLoading() {
+    loadingOverlay.classList.replace("hidden","overlay");
+}
+function hideLoading() {
+    loadingOverlay.classList.replace("overlay","hidden");
+}

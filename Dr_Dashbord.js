@@ -5,7 +5,8 @@ const appointment_url = base_url + "/api/appointments";
 const location_url = base_url + "/doctor/consultation-locations";
 const timeslot_url = base_url + "/doctor/consultation-timeslots";
 
-const doctorId = 27;
+const doctorId = localStorage.getItem("userId");
+const username = localStorage.getItem("username");
 
 document.addEventListener("DOMContentLoaded", () => {
     loadDoctorInfo();
@@ -35,7 +36,7 @@ async function loadDoctorInfo(){
         document.querySelector(".welcome-card p").textContent = docInfo.specialization;
     }catch(e){
         console.error(e);
-        alert("Failed to load doctor info!");
+        
     }
 }
 
@@ -62,7 +63,7 @@ async function loadDashboardStats(){
 
     }catch(e){
         console.error(e);
-        alert("Failed to load stats!");
+        
     }
 } 
 
@@ -84,7 +85,7 @@ async function loadConsultationLocations(){
                 totalAppointmentsResponse,
                 maxCapacityResponse
             ] = await Promise.all([
-                fetch(`${timeslot_url}/number/${locationId}`),
+                fetch(`${timeslot_url}/location/total/${locationId}`),
                 fetch(`${appointment_url}/total-patient/${locationId}`),
                 fetch(`${timeslot_url}/capacity/total/${locationId}`)
             ]);
@@ -99,7 +100,7 @@ async function loadConsultationLocations(){
         }
     }catch(e){
         console.error(e);
-        alert("Failed to load locations!");
+        
     }
 }
 

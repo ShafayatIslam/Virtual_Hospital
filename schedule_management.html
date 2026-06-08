@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Schedule - Virtual Hospital</title>
+    <link rel="stylesheet" href="schedule_management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-regular fa-heart icon-green"></i>
+            <span>Virtual Hospital</span>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <a href="Dr_Dashbord.html" class="back-link" id="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+
+        <section class="page-header card">
+            <div>
+                <h1>Manage Your Schedule</h1>
+                <p class="text-muted">Set up consultation locations and available time slots</p>
+            </div>
+            <button type="button" class="btn btn-green" id="btn-save-changes">
+                <i class="fa-regular fa-floppy-disk"></i> Save Changes
+            </button>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card bg-blue">
+                <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <p>Total Locations</p>
+                <h2 id="stat-locations">0</h2>
+            </div>
+            <div class="stat-card bg-green">
+                <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
+                <p>Total Time Slots</p>
+                <h2 id="stat-slots">0</h2>
+            </div>
+            <div class="stat-card bg-purple">
+                <div class="stat-icon"><i class="fa-solid fa-user-group"></i></div>
+                <p>Max Capacity/Week</p>
+                <h2 id="stat-capacity">0</h2>
+            </div>
+        </section>
+
+        <section class="locations-list" id="locations-list">
+        </section>
+
+        <section class="card hidden" id="add-location-form-card">
+            <h2 style="margin-bottom: 15px;">Add New Consultation Location</h2>
+            <form class="location-form" id="form-add-location">
+                <div class="form-group">
+                    <label for="new-loc-name">Location Name</label>
+                    <input type="text" id="new-loc-name" placeholder="e.g., City General Hospital" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-loc-address">Address</label>
+                    <input type="text" id="new-loc-address" placeholder="e.g., Dhaka, Badda" required>
+                </div>
+                <div class="form-group">
+                    <div class="floor-room">
+                        <div class="floor">
+                            <label for="new-loc-floor">Floor</label>
+                            <input type="text" id="new-loc-floor" placeholder="e.g., 3rd floor" required>
+                        </div>
+                        <div class="room">
+                            <label for="new-loc-room">Room</label>
+                            <input type="text" id="new-loc-room" placeholder="e.g., Room 305" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons" style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-green">Add Location</button>
+                    <button type="button" class="btn btn-gray" id="btn-cancel-location">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <button type="button" class="dashed-btn" id="btn-show-location-form">
+            <i class="fa-solid fa-plus"></i> Add New Consultation Location
+        </button>
+
+        <!-- LOCATION MODAL -->
+        <div id="location-modal" class="hidden">
+            <div class="modal-form">
+                <button type="button" class="btn btn-gray close-modal-btn" id="btn-cancel-loc-update">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </button>
+                <div class="modal-header">
+                    <h2 style="margin-bottom: 15px;">Update Consultation Location</h2>
+                </div>
+                <form class="location-form" id="form-update-location">
+                    <div class="form-group">
+                        <label for="new-loc-name">Location Name</label>
+                        <input type="text" id="new-loc-name" placeholder="e.g., City General Hospital" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-loc-address">Address</label>
+                        <input type="text" id="new-loc-address" placeholder="e.g., Dhaka, Badda" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="floor-room">
+                            <div class="floor">
+                                <label for="new-loc-floor">Floor</label>
+                                <input type="text" id="new-loc-floor" placeholder="e.g., 3rd floor" required>
+                            </div>
+                            <div class="room">
+                                <label for="new-loc-room">Room</label>
+                                <input type="text" id="new-loc-room" placeholder="e.g., Room 305" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="update-form-buttons" style="margin-top: 20px;">
+                        <button type="submit" class="btn btn-green">Update Location</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- LOADING OVERLAY -->
+        <div id="loading-overlay" class="overlay hidden">
+            <div class="loading-box">
+                <div class="circle-loader"></div>
+            </div>
+        </div>
+
+        <!-- POPUP -->
+        <div id="overlay" class="hidden">
+            <div id="warning" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: rgb(205, 63, 63);"></i>
+                    <p></p>
+                </div>
+                <div class="popup-btn-grp">
+                    <button id="yes">Yes</button>
+                    <button id="no">No</button>
+                </div>
+            </div>
+            <div id="positive-response" class="hidden">
+                <div class="popup-msg">
+                    <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+                    <p></p>
+                </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
+            </div>
+            <div id="error-alert" class="hidden">
+                <div class="popup-msg">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <p></p>
+                </div>
+                <button id="try-btn" class="popup-btn">Try again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="schedule_management.js"></script>
+</body>
+</html>

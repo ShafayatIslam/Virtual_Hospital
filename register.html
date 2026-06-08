@@ -14,7 +14,7 @@
     <!-- Logo section -->
     <div class="logo">
       <span class="heart">♡</span>
-      <span>Virtual Hospital</span>
+      <span><a href="HOME.html">Virtual Hospital</a></span>
     </div>
 
     <!-- Login link -->
@@ -252,22 +252,39 @@
       </form>
     </section>
 
-    <!-- PopUp -->
+    <!-- LOADING OVERLAY -->
+    <div id="loading-overlay" class="hidden">
+        <div class="loading-box">
+            <div class="circle-loader"></div>
+        </div>
+    </div>
+
+    <!-- POPUP -->
     <div id="overlay" class="hidden">
-      <div id="password-confirmation" class="hidden">
-        <div class="popup-msg">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <p>Passwords do not match!</p>
+        <div id="warning" class="hidden">
+            <div class="popup-msg">
+                <i class="fa-solid fa-triangle-exclamation" style="color: rgb(205, 63, 63);"></i>
+                <p></p>
+            </div>
+            <div class="popup-btn-grp">
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+            </div>
         </div>
-        <button id="ok-btn" class="popup-btn">Ok</button>
-      </div>
-      <div id="error-alert" class="hidden">
-        <div class="popup-msg">
-          <i class="fa-solid fa-circle-xmark"></i>
-          <p></p>
+        <div id="positive-response" class="hidden">
+            <div class="popup-msg">
+                <i class="fa-solid fa-circle-check" style="color: rgb(19, 168, 19);"></i>
+                <p></p>
+            </div>
+                <button id="ok-btn" class="popup-btn">Ok</button>
         </div>
-        <button id="try-btn" class="popup-btn">Try again</button>
-      </div>
+        <div id="error-alert" class="hidden">
+            <div class="popup-msg">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <p></p>
+            </div>
+            <button id="try-btn" class="popup-btn">Try again</button>
+        </div>
     </div>
   </main>
   <!-- PAGE END -->
