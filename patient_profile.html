@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Hospital – Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="profile_.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-left">
+    <button class="back-btn" onclick="history.back()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back
+    </button>
+  </div>
+
+  <div class="nav-center">
+    <i class="fa-solid fa-heart-pulse"></i>
+    Virtual Hospital
+  </div>
+
+  <div class="nav-right">
+    <div class="bell-wrapper" onclick="showSection('notifications')" title="Notifications">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+      <span class="bell-dot"></span>
+    </div>
+    <button class="logout-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+      Logout
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="avatar-wrap">
+      <div class="avatar" id="avatarCircle">J</div>
+      <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+      <div class="avatar-edit" onclick="document.getElementById('avatarInput').click()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+      </div>
+    </div>
+    <div class="user-name">John Smith</div>
+    <div class="user-role">Patient</div>
+
+    <nav class="side-nav">
+      <div class="side-item" id="nav-profile" onclick="showSection('profile')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </div>
+      <div class="side-item" id="nav-appointments" onclick="showSection('appointments')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        Appointments
+      </div>
+      <div class="side-item" id="nav-prescriptions" onclick="showSection('prescriptions')">
+        <span class="dot"></span>
+        Prescriptions
+      </div>
+      <div class="side-item" id="nav-notifications" onclick="showSection('notifications')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        Notifications
+        <span class="badge">1</span>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- DEFAULT WELCOME (shown on page load, no section selected) -->
+    <div id="section-default" class="card section-panel">
+      <div class="empty-state">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h3>Welcome !</h3>
+        <p>Select a menu item from the sidebar to view your information.</p>
+      </div>
+    </div>
+
+    <!-- PROFILE SECTION (hidden until Profile clicked) -->
+    <div id="section-profile" class="section-panel hidden">
+
+      <!-- VIEW MODE -->
+      <div id="viewMode" class="card">
+        <div class="card-header">
+          <h2>Personal Information</h2>
+          <button class="edit-btn" onclick="enterEditMode()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Edit Profile
+          </button>
+        </div>
+        <div class="info-grid">
+          <div class="info-field">
+            <label>Full Name</label>
+            <div class="info-value" id="v-fullname">Name </div>
+           
+          </div>
+          <div class="info-field">
+            <label>Email</label>
+            <div class="info-value" id="v-email">an@example.com</div>
+          </div>
+          <div class="info-field">
+            <label>Phone</label>
+            <div class="info-value" id="v-phone">+8801712345678</div>
+          </div>
+          <div class="info-field">
+            <label>Date Of Birth</label>
+            <div class="info-value" id="v-dob">12-3-1998</div>
+          </div>
+          <div class="info-field">
+            <label>Gender</label>
+            <div class="info-value" id="v-gender">Male</div>
+          </div>
+          <div class="info-field">
+            <label>Blood Group</label>
+            <div class="info-value" id="v-blood">O+</div>
+          </div>
+          <div class="info-field">
+            <label>Address</label>
+            <div class="info-value" id="v-address">street, city</div>
+          </div>
+          <div class="info-field">
+            <label>Emergency Contact</label>
+            <div class="info-value" id="v-emergency">+8801712345678</div>
+          </div>
+          <div class="info-field">
+            <label>Emergency Contact Name</label>
+            <div class="info-value" id="v-ecname">Name </div>
+          </div>
+          <div class="info-field">
+            <label>Allergies</label>
+            <div class="info-value" id="v-allergies">Penicillin</div>
+          </div>
+          <div class="info-field full-width">
+            <label>Chronic Conditions</label>
+            <div class="info-value" id="v-chronic">None</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT MODE (hidden until Edit Profile clicked) -->
+      <div id="editMode" class="card hidden">
+        <div class="card-header">
+          <h2>Personal Information</h2>
+          <div class="header-actions">
+            <button class="save-btn" onclick="saveProfile()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+                <polyline points="7 3 7 8 15 8"/>
+              </svg>
+              Save
+            </button>
+            <button class="cancel-btn" onclick="cancelEdit()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+              Cancel
+            </button>
+          </div>
+        </div>
+        <div class="info-grid">
+          <div class="info-field">
+            <label>Full Name</label>
+            <input type="text" id="e-fullname"/>
+          </div>
+          <div class="info-field">
+            <label>Email</label>
+            <input type="email" id="e-email"/>
+          </div>
+          <div class="info-field">
+            <label>Phone</label>
+            <input type="tel" id="e-phone"/>
+          </div>
+          <div class="info-field">
+            <label>Date Of Birth</label>
+            <input type="date" id="e-dob"/>
+          </div>
+          <div class="info-field">
+            <label>Gender</label>
+            <select id="e-gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="info-field">
+            <label>Blood Group</label>
+            <input type="text" id="e-blood"/>
+          </div>
+          <div class="info-field">
+            <label>Address</label>
+            <input type="text" id="e-address"/>
+          </div>
+          <div class="info-field">
+            <label>Emergency Contact</label>
+            <input type="tel" id="e-emergency"/>
+          </div>
+          <div class="info-field">
+            <label>Emergency Contact Name</label>
+            <input type="text" id="e-ecname"/>
+          </div>
+          <div class="info-field">
+            <label>Allergies</label>
+            <input type="text" id="e-allergies"/>
+          </div>
+          <div class="info-field full-width">
+            <label>Chronic Conditions</label>
+            <input type="text" id="e-chronic"/>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /section-profile -->
+
+    <!-- APPOINTMENTS SECTION -->
+    <div id="section-appointments" class="card section-panel hidden">
+      <div class="card-header">
+        <h2>My Appointments</h2>
+      </div>
+      <div class="appointments-list">
+        <!-- Appointment Card 1 -->
+        <div class="appt-card">
+          <div class="appt-top">
+            <div class="appt-doctor">
+              <div class="appt-doctor-name">Dr. Sarah Johnson</div>
+              <div class="appt-specialty">Cardiologist</div>
+            </div>
+            <span class="appt-badge upcoming">Upcoming</span>
+          </div>
+          <div class="appt-meta">
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026-04-28
+            </span>
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              9:00 AM
+            </span>
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              City General Hospital
+            </span>
+          </div>
+        </div>
+
+        <!-- Appointment Card 2 -->
+        <div class="appt-card">
+          <div class="appt-top">
+            <div class="appt-doctor">
+              <div class="appt-doctor-name">Dr. Michael Chen</div>
+              <div class="appt-specialty">Cardiologist</div>
+            </div>
+            <span class="appt-badge completed">Completed</span>
+          </div>
+          <div class="appt-meta">
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2026-04-25
+            </span>
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              10:00 AM
+            </span>
+            <span class="appt-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              HealthCare Medical Center
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESCRIPTIONS SECTION -->
+    <div id="section-prescriptions" class="card section-panel hidden">
+      <div class="card-header">
+        <h2>My Prescriptions</h2>
+      </div>
+
+      <!-- Prescription Invoice 1 -->
+      <div class="rx-invoice">
+        <div class="rx-invoice-header">
+          <div class="rx-invoice-left">
+            <div class="rx-label">Prescription</div>
+            <div class="rx-id">#RX-2026-0041</div>
+          </div>
+          <div class="rx-invoice-right" style="display:flex;align-items:center;gap:12px;">
+            <span class="rx-status active">Active</span>
+            <button class="rx-download-btn" onclick="downloadInvoice('RX-2026-0041')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Invoice
+            </button>
+          </div>
+        </div>
+
+        <div class="rx-meta-row">
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Prescribed by</span>
+            <span class="rx-meta-value">Dr. Michael Chen</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Date Issued</span>
+            <span class="rx-meta-value">2026-04-25</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Valid Until</span>
+            <span class="rx-meta-value">2026-07-25</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Diagnosis</span>
+            <span class="rx-meta-value">Hypertension</span>
+          </div>
+        </div>
+
+        <table class="rx-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Medication</th>
+              <th>Dosage</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Instructions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>Amlodipine</strong></td>
+              <td>5 mg</td>
+              <td>Once daily</td>
+              <td>90 days</td>
+              <td>Take in the morning with water</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Losartan</strong></td>
+              <td>50 mg</td>
+              <td>Once daily</td>
+              <td>90 days</td>
+              <td>Take with or without food</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>Aspirin</strong></td>
+              <td>75 mg</td>
+              <td>Once daily</td>
+              <td>90 days</td>
+              <td>Take after meals</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="rx-notes">
+          <span class="rx-notes-label">Doctor's Notes:</span>
+          Monitor blood pressure daily. Avoid high-sodium foods. Return for follow-up in 3 months.
+        </div>
+      </div>
+
+      <!-- Prescription Invoice 2 -->
+      <div class="rx-invoice">
+        <div class="rx-invoice-header">
+          <div class="rx-invoice-left">
+            <div class="rx-label">Prescription</div>
+            <div class="rx-id">#RX-2026-0028</div>
+          </div>
+          <div class="rx-invoice-right" style="display:flex;align-items:center;gap:12px;">
+            <span class="rx-status expired">Expired</span>
+            <button class="rx-download-btn" onclick="downloadInvoice('RX-2026-0028')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Invoice
+            </button>
+          </div>
+        </div>
+
+        <div class="rx-meta-row">
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Prescribed by</span>
+            <span class="rx-meta-value">Dr. Sarah Johnson</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Date Issued</span>
+            <span class="rx-meta-value">2026-01-10</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Valid Until</span>
+            <span class="rx-meta-value">2026-04-10</span>
+          </div>
+          <div class="rx-meta-item">
+            <span class="rx-meta-label">Diagnosis</span>
+            <span class="rx-meta-value">Seasonal Allergy</span>
+          </div>
+        </div>
+
+        <table class="rx-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Medication</th>
+              <th>Dosage</th>
+              <th>Frequency</th>
+              <th>Duration</th>
+              <th>Instructions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>Cetirizine</strong></td>
+              <td>10 mg</td>
+              <td>Once daily</td>
+              <td>30 days</td>
+              <td>Take at bedtime</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>Fluticasone Nasal Spray</strong></td>
+              <td>50 mcg</td>
+              <td>Twice daily</td>
+              <td>30 days</td>
+              <td>2 sprays each nostril</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="rx-notes">
+          <span class="rx-notes-label">Doctor's Notes:</span>
+          Avoid allergens where possible. Discontinue if rash develops.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NOTIFICATIONS SECTION -->
+    <div id="section-notifications" class="card section-panel hidden">
+      <div class="card-header">
+        <h2>Notifications</h2>
+      </div>
+      <div class="notif-list">
+        <div class="notification-item unread">
+          <div class="notif-dot"></div>
+          <div class="notif-content">
+            <div class="notif-title">Appointment Reminder</div>
+            <div class="notif-text">Your appointment with Dr. Sarah Johnson is scheduled for 2026-04-28 at 9:00 AM.</div>
+            <div class="notif-time"> 1 hours ago</div>
+          </div>
+        </div>
+        <div class="notification-item">
+          <div class="notif-dot read"></div>
+          <div class="notif-content">
+            <div class="notif-title">Prescription Updated</div>
+            <div class="notif-text">Your prescription has been updated by Dr. Michael Chen.</div>
+            <div class="notif-time">Yesterday</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // ── Section switching ──
+  function showSection(name) {
+    document.querySelectorAll('.section-panel').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.side-item').forEach(el => el.classList.remove('active'));
+    const section = document.getElementById('section-' + name);
+    if (section) section.classList.remove('hidden');
+    const navItem = document.getElementById('nav-' + name);
+    if (navItem) navItem.classList.add('active');
+  }
+
+  // Show default on load
+  showSection('default');
+
+  // ── Avatar photo upload ──
+  document.getElementById('avatarInput').addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const avatar = document.getElementById('avatarCircle');
+      avatar.textContent = '';
+      avatar.style.backgroundImage = 'url(' + e.target.result + ')';
+      avatar.style.backgroundSize = 'cover';
+      avatar.style.backgroundPosition = 'center';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // ── Profile edit / save / cancel ──
+  function enterEditMode() {
+    document.getElementById('viewMode').classList.add('hidden');
+    document.getElementById('editMode').classList.remove('hidden');
+    ['fullname','email','phone','blood','address','emergency','ecname','allergies','chronic'].forEach(f => {
+      document.getElementById('e-' + f).value = document.getElementById('v-' + f).textContent.trim();
+    });
+    const dob = document.getElementById('v-dob').textContent.trim();
+    const parts = dob.split('-');
+    if (parts.length === 3) {
+      document.getElementById('e-dob').value = parts[0].length === 4
+        ? dob : `${parts[2]}-${parts[1].padStart(2,'0')}-${parts[0].padStart(2,'0')}`;
+    }
+    document.getElementById('e-gender').value = document.getElementById('v-gender').textContent.trim();
+  }
+
+  function saveProfile() {
+    ['fullname','email','phone','blood','address','emergency','ecname','allergies','chronic'].forEach(f => {
+      document.getElementById('v-' + f).textContent = document.getElementById('e-' + f).value || '—';
+    });
+    const dobRaw = document.getElementById('e-dob').value;
+    document.getElementById('v-dob').textContent = dobRaw || '—';
+    document.getElementById('v-gender').textContent = document.getElementById('e-gender').value;
+    document.getElementById('editMode').classList.add('hidden');
+    document.getElementById('viewMode').classList.remove('hidden');
+  }
+
+  function cancelEdit() {
+    document.getElementById('editMode').classList.add('hidden');
+    document.getElementById('viewMode').classList.remove('hidden');
+  }
+
+  // ── Invoice download ──
+  function downloadInvoice(id) {
+    const invoices = {
+      'RX-2026-0041': {
+        id: '#RX-2026-0041', status: 'Active', statusColor: '#16a34a', statusBg: '#dcfce7',
+        doctor: 'Dr. Michael Chen', issued: '2026-04-25', valid: '2026-07-25', diagnosis: 'Hypertension',
+        patient: 'John Smith', dob: '12-03-1998', blood: 'O+',
+        meds: [
+          { name: 'Amlodipine',  dosage: '5 mg',    freq: 'Once daily', duration: '90 days', note: 'Take in the morning with water' },
+          { name: 'Losartan',    dosage: '50 mg',   freq: 'Once daily', duration: '90 days', note: 'Take with or without food' },
+          { name: 'Aspirin',     dosage: '75 mg',   freq: 'Once daily', duration: '90 days', note: 'Take after meals' },
+        ],
+        doctorNotes: 'Monitor blood pressure daily. Avoid high-sodium foods. Return for follow-up in 3 months.'
+      },
+      'RX-2026-0028': {
+        id: '#RX-2026-0028', status: 'Expired', statusColor: '#999', statusBg: '#f3f4f6',
+        doctor: 'Dr. Sarah Johnson', issued: '2026-01-10', valid: '2026-04-10', diagnosis: 'Seasonal Allergy',
+        patient: 'John Smith', dob: '12-03-1998', blood: 'O+',
+        meds: [
+          { name: 'Cetirizine',               dosage: '10 mg',   freq: 'Once daily',  duration: '30 days', note: 'Take at bedtime' },
+          { name: 'Fluticasone Nasal Spray',  dosage: '50 mcg',  freq: 'Twice daily', duration: '30 days', note: '2 sprays each nostril' },
+        ],
+        doctorNotes: 'Avoid allergens where possible. Discontinue if rash develops.'
+      }
+    };
+
+    const rx = invoices[id];
+    if (!rx) return;
+
+    const rows = rx.meds.map((m, i) => `
+      <tr>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;color:#aaa;font-weight:600;">${i+1}</td>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;font-weight:600;color:#1a1a2e;">${m.name}</td>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;color:#333;">${m.dosage}</td>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;color:#333;">${m.freq}</td>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;color:#333;">${m.duration}</td>
+        <td style="padding:11px 14px;border-bottom:1px solid #f0f2f7;color:#555;">${m.note}</td>
+      </tr>`).join('');
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prescription ${rx.id}</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:#f0f2f7; padding:40px 24px; color:#1a1a2e; }
+  .invoice { background:#fff; max-width:820px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 4px 30px rgba(0,0,0,0.08); }
+  .inv-header { background: linear-gradient(135deg,#5b7ff0,#7ca2ff); padding:32px 40px; display:flex; justify-content:space-between; align-items:flex-start; }
+  .inv-brand { color:#fff; }
+  .inv-brand-name { font-size:20px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+  .inv-brand-sub { font-size:13px; opacity:0.8; }
+  .inv-rx-block { text-align:right; color:#fff; }
+  .inv-rx-label { font-size:11px; font-weight:600; opacity:0.75; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:4px; }
+  .inv-rx-id { font-size:22px; font-weight:700; }
+  .inv-status { display:inline-block; margin-top:8px; padding:4px 14px; border-radius:20px; font-size:12px; font-weight:700; background:${rx.statusBg}; color:${rx.statusColor}; }
+  .inv-body { padding:36px 40px; }
+  .inv-meta { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:32px; padding-bottom:28px; border-bottom:1px dashed #e0e4f0; }
+  .inv-meta-block h4 { font-size:11px; font-weight:600; color:#999; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:12px; }
+  .inv-meta-row { display:flex; flex-direction:column; gap:8px; }
+  .inv-meta-item { display:flex; gap:10px; font-size:13px; }
+  .inv-meta-item .lbl { color:#999; font-weight:500; min-width:110px; }
+  .inv-meta-item .val { color:#1a1a2e; font-weight:600; }
+  .inv-section-title { font-size:13px; font-weight:700; color:#1a1a2e; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:14px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:28px; }
+  thead tr { background:#f5f7fb; }
+  th { text-align:left; padding:11px 14px; font-size:11px; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:0.05em; border-bottom:2px solid #e8eaf0; }
+  .inv-notes { background:#f9fafc; border:1px solid #e8eaf0; border-radius:10px; padding:16px 20px; font-size:13px; color:#555; line-height:1.7; margin-bottom:28px; }
+  .inv-notes strong { color:#444; margin-right:6px; }
+  .inv-footer { border-top:1px solid #e8eaf0; padding:24px 40px; display:flex; justify-content:space-between; align-items:center; }
+  .inv-sig { font-size:13px; color:#555; }
+  .inv-sig strong { display:block; color:#1a1a2e; margin-bottom:2px; }
+  .inv-watermark { font-size:12px; color:#bbb; }
+  @media print {
+    body { background:#fff; padding:0; }
+    .invoice { box-shadow:none; border-radius:0; }
+    .no-print { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="invoice">
+  <div class="inv-header">
+    <div class="inv-brand">
+      <div class="inv-brand-name">&#10084; Virtual Hospital</div>
+      <div class="inv-brand-sub">Medical Prescription Record</div>
+    </div>
+    <div class="inv-rx-block">
+      <div class="inv-rx-label">Prescription ID</div>
+      <div class="inv-rx-id">${rx.id}</div>
+      <div class="inv-status">${rx.status}</div>
+    </div>
+  </div>
+
+  <div class="inv-body">
+    <div class="inv-meta">
+      <div class="inv-meta-block">
+        <h4>Patient Information</h4>
+        <div class="inv-meta-row">
+          <div class="inv-meta-item"><span class="lbl">Full Name</span><span class="val">${rx.patient}</span></div>
+          <div class="inv-meta-item"><span class="lbl">Date of Birth</span><span class="val">${rx.dob}</span></div>
+          <div class="inv-meta-item"><span class="lbl">Blood Group</span><span class="val">${rx.blood}</span></div>
+          <div class="inv-meta-item"><span class="lbl">Diagnosis</span><span class="val">${rx.diagnosis}</span></div>
+        </div>
+      </div>
+      <div class="inv-meta-block">
+        <h4>Prescription Details</h4>
+        <div class="inv-meta-row">
+          <div class="inv-meta-item"><span class="lbl">Prescribed By</span><span class="val">${rx.doctor}</span></div>
+          <div class="inv-meta-item"><span class="lbl">Date Issued</span><span class="val">${rx.issued}</span></div>
+          <div class="inv-meta-item"><span class="lbl">Valid Until</span><span class="val">${rx.valid}</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inv-section-title">Prescribed Medications</div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Duration</th><th>Instructions</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+
+    <div class="inv-notes"><strong>Doctor's Notes:</strong>${rx.doctorNotes}</div>
+
+    <div style="text-align:center; margin-bottom:10px;" class="no-print">
+      <button onclick="window.print()" style="background:#5b7ff0;color:#fff;border:none;padding:12px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="inv-footer">
+    <div class="inv-sig">
+      <strong>${rx.doctor}</strong>
+      Attending Physician · Virtual Hospital
+    </div>
+    <div class="inv-watermark">Generated by Virtual Hospital &copy; 2026</div>
+  </div>
+</div>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url  = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
