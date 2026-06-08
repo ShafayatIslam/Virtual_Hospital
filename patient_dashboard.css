@@ -25,6 +25,10 @@ nav {
   align-items: center;
 }
 
+.nav-right a{
+  text-decoration: none;
+}
+
 .back-btn {
   display: flex;
   align-items: center;
@@ -226,7 +230,7 @@ nav {
   border-color: #5b7ff0;
 }
 
-.find-btn {
+.inactive-find-btn {
   margin-top: 18px;
   padding: 12px 28px;
   background: #b0bcd4;
@@ -237,6 +241,20 @@ nav {
   font-size: 15px;
   font-weight: 500;
   cursor: not-allowed;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.active-find-btn {
+  margin-top: 18px;
+  padding: 12px 28px;
+  background: #20b84d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
 
