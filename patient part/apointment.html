@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Msaday Appointments - Virtual Hospital</title>
+    <link rel="stylesheet" href="appointment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-regular fa-heart icon-blue"></i> Virtual Hospital
+        </div>
+        <div class="header-actions">
+            <button type="button" class="btn-icon">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+            <button type="button" class="btn-text">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        
+        <aside class="profile-sidebar">
+            <div class="sidebar-user-info">
+                <div class="avatar-container">
+                    <div class="avatar avatar-xl">J</div>
+                    <button type="button" class="btn-camera" title="Change Photo">
+                        <i class="fa-solid fa-camera"></i>
+                    </button>
+                </div>
+                <h2>John Smith</h2>
+                <p class="text-muted">Patient</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="patient profile.html" class="menu-item">
+                    <i class="fa-regular fa-user"></i> Profile
+                </a>
+                <a href="apointment.html" class="menu-item active">
+                    <i class="fa-regular fa-calendar"></i> Appointments
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-file-prescription"></i> Prescriptions
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-regular fa-bell" style="width: 20px;"></i> Notifications</span>
+                    <span class="badge badge-red">1</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <div class="card appointments-main-card">
+                <h2 class="section-title">My Appointments</h2>
+                
+                <div class="appointments-list" id="appointments-list">
+                    </div>
+            </div>
+        </main>
+        
+    </div>
+
+    <script src="appointment.js"></script>
+</body>
+</html>
