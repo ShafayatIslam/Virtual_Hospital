@@ -1,6 +1,6 @@
-// ==========================================
+ 
 // 1. INITIAL STATE (Dummy Data for Frontend Logic)
-// ==========================================
+ 
 // Ei file ta puro frontend logic (array diye data store) diye cholbe.
 // Backend connected hole just ei array ta fetch kore niye asbe.
 let appointmentsArray = [
@@ -25,9 +25,9 @@ let appointmentsArray = [
 ];
 
 
-// ==========================================
+ 
 // 2. DOMContentLoaded & EVENT LISTENERS
-// ==========================================
+ 
 // HTML load hoye gele tarpor JS run hobe
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ==========================================
+ 
 // 3. RENDER FUNCTION
-// ==========================================
+ 
 // renderAppointments() er main kaj:
 // 1) UI list clear kora
 // 2) Prottek appointment er jonno card HTML banano
